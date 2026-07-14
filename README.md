@@ -6,8 +6,11 @@ Building **AI-powered automation skills**, **productivity tools**, and **knowled
 
 ## 🎯 What I Do
 
-I create **production-ready automation skills** across multiple AI platforms (OpenClaw, Hermes, Claude Code), focusing on:
+I build and deploy **AI-powered automation skills** that ship to production across multiple platforms.
 
+**Current Portfolio:** 21 published skills | 8 active repos | 59 technical articles | Deployed on OpenClaw, Hermes, Claude Code
+
+I focus on:
 - **Skill-based AI orchestration** — turning workflows into reusable, composable skills
 - **Multilingual content automation** — English ↔ Chinese/Traditional Chinese
 - **Developer productivity tools** — Chrome extensions, CLI utilities, API integrations
@@ -17,30 +20,44 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 
 ---
 
+## 📑 Table of Contents
+
+- [What I Do](#-what-i-do)
+- [Main Repositories](#-main-repositories)
+- [Code Highlights](#-code-highlights)
+- [Activity Timeline](#-activity-timeline)
+- [Tech Stack](#-tech-stack)
+- [Design Philosophy](#-design-philosophy)
+- [Why This Approach](#-why-this-approach)
+- [Getting Started](#-getting-started)
+- [Quick Links](#-quick-links)
+
+---
+
 ## 📦 Main Repositories
 
 ### Core AI Skills & Automation
 
 | Repo | Purpose | Latest | Status |
 |------|---------|--------|--------|
-| **[ai-custom-skills](https://github.com/negtivspace/ai-custom-skills)** | Production-ready skills for multiple platforms (Claude Code, Hermes, OpenClaw). Covers content creation, data export, workflow automation. | `add new skill and tidy up the repo` (Jul 2026) | 🔄 Active |
-| **[hermes-custom-skills](https://github.com/negtivspace/hermes-custom-skills)** | Specialized skills for [Hermes Agent](https://hermes.ai) — autonomous workflows, content generation, task orchestration. | `docs: add README and CONTRIBUTING` (Jul 2026) | 🔄 Active |
-| **[openclaw-custom-skills](https://github.com/negtivspace/openclaw-custom-skills)** | Production skills for [OpenClaw](https://openclaw.ai) published to ClawHub. Multilingual blog publishing, media generation. | `add chinese edition` (Jul 2026) | 🔄 Active |
-| **[claude-custom-skills](https://github.com/negtivspace/claude-custom-skills)** | Automation skills for [Claude Code](https://claude.ai) — productivity hacks, data export, content workflows. | `add i18n support to README` (Jul 2026) | ✨ Stable |
+| **[`ai-custom-skills`](https://github.com/negtivspace/ai-custom-skills)** | Production-ready skills for multiple platforms (Claude Code, Hermes, OpenClaw). Covers content creation, data export, workflow automation. | `add new skill and tidy up the repo` (Jul 2026) | 🔄 Active |
+| **[`hermes-custom-skills`](https://github.com/negtivspace/hermes-custom-skills)** | Specialized skills for [Hermes Agent](https://hermes.ai) — autonomous workflows, content generation, task orchestration. | `docs: add README and CONTRIBUTING` (Jul 2026) | 🔄 Active |
+| **[`openclaw-custom-skills`](https://github.com/negtivspace/openclaw-custom-skills)** | Production skills for [OpenClaw](https://openclaw.ai) published to ClawHub. Multilingual blog publishing, media generation. | `add chinese edition` (Jul 2026) | 🔄 Active |
+| **[`claude-custom-skills`](https://github.com/negtivspace/claude-custom-skills)** | Automation skills for [Claude Code](https://claude.ai) — productivity hacks, data export, content workflows. | `add i18n support to README` (Jul 2026) | ✨ Stable |
 
 ### Tools & Extensions
 
 | Repo | Purpose | Type | Latest |
 |------|---------|------|--------|
-| **[sum2chn](https://github.com/negtivspace/sum2chn)** | Chrome extension: translate & summarize English web pages → Simplified Chinese Markdown | Chrome Ext | `Initial release` (Jul 2026) |
-| **[twitter2md](https://github.com/negtivspace/twitter2md)** | Extract Twitter/X posts as Markdown (Chrome Extension + Node.js CLI) | Chrome Ext + CLI | `Initial release` (May 2026) |
-| **[twitterBookmarkSum](https://github.com/negtivspace/twitterBookmarkSum)** | Chrome extension: summarize tweets on-demand via GPT-4o, save as Markdown | Chrome Ext | `Update README` (Jun 2024) |
+| **[`sum2chn`](https://github.com/negtivspace/sum2chn)** | Chrome extension: translate & summarize English web pages → Simplified Chinese Markdown | Chrome Ext | `Initial release` (Jul 2026) |
+| **[`twitter2md`](https://github.com/negtivspace/twitter2md)** | Extract Twitter/X posts as Markdown (Chrome Extension + Node.js CLI) | Chrome Ext + CLI | `Initial release` (May 2026) |
+| **[`twitterBookmarkSum`](https://github.com/negtivspace/twitterBookmarkSum)** | Chrome extension: summarize tweets on-demand via GPT-4o, save as Markdown | Chrome Ext | `Update README` (Jun 2024) |
 
 ### Writing & Documentation
 
 | Repo | Purpose | Articles | Latest |
 |------|---------|----------|--------|
-| **[ai-thoughts](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 59 docs | `docs: add Brave browser privacy analysis` (Jul 2026) |
+| **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 59 docs | `docs: add Brave browser privacy analysis` (Jul 2026) |
 
 ---
 
@@ -99,6 +116,11 @@ Process the provided English web page content and produce a high-quality Chinese
 - **Jul 14:** Polished and committed two blog posts with bilingual README updates
 - **Early Jul:** Releasing v1 of `sum2chn` Chrome extension (translation + summarization)
 
+**Current Focus:**
+- Expanding Hermes Agent skill library
+- Building bilingual content automation pipelines
+- Documenting OpenClaw security patterns
+
 ### Q2 2026
 - **Jun:** Completed `twitter2md` Chrome extension and Node.js CLI tool
 - **Jun:** Refactored `twitterBookmarkSum` to use popup-triggered summarization
@@ -113,26 +135,13 @@ Process the provided English web page content and produce a high-quality Chinese
 
 ## 🛠️ Tech Stack
 
-**Languages:** Python, JavaScript, TypeScript, Bash
+**Programming:** Python, JavaScript, TypeScript, Bash
 
-**AI Platforms:** 
-- [OpenClaw](https://openclaw.ai) — local agent orchestration
-- [Hermes Agent](https://hermes.ai) — autonomous workflow automation
-- [Claude Code](https://claude.ai/code) — AI-native coding
-- [OpenRouter](https://openrouter.ai) — unified LLM gateway
+**AI Platforms:** [OpenClaw](https://openclaw.ai), [Hermes Agent](https://hermes.ai), [Claude Code](https://claude.ai/code), [OpenRouter](https://openrouter.ai)
 
-**APIs & Services:**
-- Anthropic Claude (Sonnet, Opus)
-- OpenRouter (100+ model access)
-- Chrome Extension APIs
-- Twitter/X API v2
-- Web scraping & DOM manipulation
+**APIs & Services:** Anthropic Claude (Sonnet, Opus), OpenAI GPT-4o, Twitter/X API v2, Chrome Extension APIs, Web scraping & DOM manipulation
 
-**Tools:**
-- Git + GitHub
-- Node.js + npm
-- Python 3.10+
-- Markdown-first documentation
+**DevOps:** Git + GitHub, Node.js + npm, Python 3.10+, Markdown-first documentation
 
 ---
 
@@ -146,11 +155,26 @@ Process the provided English web page content and produce a high-quality Chinese
 
 ---
 
+## 🎓 Why This Approach
+
+I've found that **skill-based thinking** scales better than project-based thinking:
+
+- **Skills are composable** — combine multiple skills to solve new problems
+- **Platforms evolve** — Claude Code, OpenClaw, and Hermes are all 2025-2026 products; shipping skills across all three future-proofs my work
+- **Multilingual content** — 40%+ of my audience is Chinese-speaking; this isn't optional, it's essential
+- **Learn in public** — writing about the journey attracts collaborators and opportunities
+
+---
+
 ## 🔗 Quick Links
 
-- **GitHub:** [@negtivspace](https://github.com/negtivspace)
-- **Blog:** [ai-thoughts](https://github.com/negtivspace/ai-thoughts) — 59 articles on AI, privacy, and entrepreneurship
-- **Gists & Experiments:** [Personal gists](https://gist.github.com/j3ffyang)
+**GitHub Accounts:**
+- **[@negtivspace](https://github.com/negtivspace)** — Published skills & tools (organizational account)
+- **[@j3ffyang](https://github.com/j3ffyang)** — Personal portfolio, articles, experiments
+
+**Resources:**
+- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 59 articles on AI, privacy, and entrepreneurship
+- **Gists:** [Personal experiments](https://gist.github.com/j3ffyang)
 
 ---
 
@@ -196,6 +220,16 @@ git clone https://github.com/negtivspace/ai-thoughts
 cd docs
 # 59 articles: AI platforms, privacy, solo entrepreneurship, technical deep-dives
 ```
+
+---
+
+## 💬 Let's Connect
+
+- **Collaborate on skills?** Open an issue in any repo
+- **Need a custom skill?** Check the individual repo's CONTRIBUTING.md
+- **Have feedback?** File an issue or ping me on GitHub
+
+**Current availability:** Available for OpenClaw/Hermes/Claude Code skill requests
 
 ---
 
