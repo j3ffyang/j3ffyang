@@ -15,11 +15,25 @@ classical literature. All articles are written in Chinese.
 - **Commit only when asked.** Never commit, amend, or push unless the user
   explicitly requests it. When committing, stage only intended files.
 
+## Filename conventions
+
+Every file in `docs/` and `imgs/` follows a `YYMMDD-slug` pattern: a 6-digit
+date (`YYMMDD`, no `HHMM`, no `YYYY-MM-DD`), a hyphen, then a lowercase slug.
+No spaces.
+
+- **Articles** — `docs/<YYMMDD>-<slug>.md`, e.g.
+  `260604-five-dynasties-ten-kingdoms-article.md`.
+- **Images** — `imgs/<YYMMDD>-<slug>.<ext>`; images for an article share the
+  article's `YYMMDD` prefix.
+- **Screenshots / captures with no meaningful name** — keep the capture time
+  as the slug, e.g. `260604-074056.png`.
+- **Renaming** — when a file is renamed, update every `../imgs/<file>` and doc
+  link that referenced the old name.
+
 ## Repository layout
 
-- `docs/` — article Markdown files (follow the `YYMMDD-slug` naming).
-- `imgs/` — article images, same `YYMMDD-slug` prefix as the article they
-  belong to.
+- `docs/` — article Markdown files (see "Filename conventions").
+- `imgs/` — article images (see "Filename conventions").
 - `README.md` — bilingual index, edited by hand. Keep it in sync whenever
   articles are added, moved, or removed.
 

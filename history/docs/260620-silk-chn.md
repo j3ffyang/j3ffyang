@@ -3,7 +3,7 @@
 - 所有内容均为原创，包括 [SKILL.md](https://clawhub.ai/j3ffyang/260620-silk-essay-chn)
 - 本文的使用协作的 Hermes Agent SKILL.md > https://clawhub.ai/j3ffyang/260620-silk-essay-chn
 
-![banner](../imgs/openai_gpt-image-2-medium_20260623_082954_6be1fda2.png)
+![banner](../imgs/260623-082954.png)
 
 ## 引子：贾母的绸缎箱
 
@@ -16,7 +16,7 @@
 ---
 
 ## 第一部分：从土地到织机——中国丝绸的时间线
-![hist](../imgs/openai_gpt-image-2-medium_20260623_064210_5d3fa1aa.png)
+![hist](../imgs/260623-064210.png)
 
 ### 蚕桑的起源：先秦的沉默证人
 
@@ -57,7 +57,7 @@
 ---
 
 ## 第二部分：四种织物的技术肖像
-![details](../imgs/openai_gpt-image-2-medium_20260623_064048_97dcf0f7.png)
+![details](../imgs/260623-064048.png)
 
 如果说"绫罗绸缎"是诗人的说法，那么工匠的说法就截然不同。这四个字，分别对应着三原组织中的**斜纹**（绫）、**绞经**（罗）、**平纹**（绸）和**缎纹**（缎）。掌握了这四种组织，就掌握了中国古代丝绸分类的骨架。
 

@@ -6,6 +6,17 @@ Articles live in [`docs/`](docs/); images for each article live in [`imgs/`](img
 
 ---
 
+## Contents
+
+| Article | Description |
+|---|---|
+| [Five Dynasties & Ten Kingdoms](docs/260604-five-dynasties-ten-kingdoms-article.md) | An in-depth history of the Five Dynasties & Ten Kingdoms period (907–979), with a timeline, key events, and analysis |
+| [Silk Through the Ages](docs/260620-silk-chn.md) | Silk as a cipher of civilization on a thread — a silk history from archaeology to the loom, told through the lens of *Dream of the Red Chamber* |
+| [The Rhapsody of the Luo River](docs/260629-luoshenfu-literary-analysis.md) | A literary appreciation of Cao Zhi's masterpiece — Wei-Jin aesthetics, the "ideal woman" archetype, and its dialogue with *Dream of the Red Chamber* and Chan Buddhism |
+| [Who Is Zhiyanzhai?](docs/260723-whoszhiyanzhai.md) | Three centuries of mystery around *Dream of the Red Chamber*'s anonymous commentator: five identity hypotheses and the redology debate |
+
+---
+
 ## 目录
 
 | 文章 | 简介 |
