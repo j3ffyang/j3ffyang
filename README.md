@@ -8,7 +8,7 @@ Building **AI-powered automation skills**, **productivity tools**, and **knowled
 
 I build and deploy **AI-powered automation skills** that ship to production across multiple platforms.
 
-**Current Portfolio:** 21 published skills | 8 active repos | 61 technical articles | Deployed on OpenClaw, Hermes, Claude Code
+**Current Portfolio:** 21 published skills | 12 active repos | 61 technical articles | Deployed on OpenClaw, Hermes, Claude Code
 
 I focus on:
 - **Skill-based AI orchestration** — turning workflows into reusable, composable skills
@@ -59,6 +59,14 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 |------|---------|----------|--------|
 | **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 57 docs | `docs: normalize naming & fix image links` (Aug 2026) |
 | **[`history`](https://github.com/negtivspace/history)** | Archived bilingual literary articles — Five Dynasties & Ten Kingdoms, silk, *Dream of the Red Chamber*, Zhiyanzhai | 4 docs | Aug 2026 |
+
+### Books, Handbooks & Reference
+
+| Repo | Purpose | Language | Latest |
+|------|---------|----------|--------|
+| **[`langchain_project_book`](https://github.com/j3ffyang/langchain_project_book)** | Packt-published handbook on orchestrating large language models with LangChain | JavaScript | Aug 2025 |
+| **[`opensource_devops`](https://github.com/j3ffyang/opensource_devops)** | DevOps handbook & technical guide — conceptual best practices + hands-on guides. Bilingual: English + Simplified Chinese | Ruby | Apr 2026 |
+| **[`astro_journal`](https://github.com/j3ffyang/astro_journal)** | Personal blog built on Astro | Astro | 2025 |
 
 ---
 
@@ -176,6 +184,7 @@ I've found that **skill-based thinking** scales better than project-based thinki
 
 **Resources:**
 - **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 57 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in [`history`](https://github.com/negtivspace/history))
+- **References:** [`langchain_project_book`](https://github.com/j3ffyang/langchain_project_book) (LangChain handbook) · [`opensource_devops`](https://github.com/j3ffyang/opensource_devops) (DevOps handbook) · [`astro_journal`](https://github.com/j3ffyang/astro_journal) (personal blog)
 - **Gists:** [Personal experiments](https://gist.github.com/j3ffyang)
 
 ---
@@ -241,4 +250,4 @@ Most repos are **MIT License** — see individual repos for details.
 
 ---
 
-**Last Updated:** August 2, 2026 | Tracking: 8 active repos, 61 articles, 10+ published skills
+**Last Updated:** August 2, 2026 | Tracking: 12 active repos, 61 articles, 10+ published skills

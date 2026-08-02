@@ -79,7 +79,7 @@ def main() -> int:
     if edits:
         today = _dt.date.today()
         date_str = f"{today:%B} {today.day}, {today.year}"
-        sub(r"(\*\*Last Updated:\*\* )[^|]+( \| Tracking: 8 active repos, )\d+( articles,)",
+        sub(r"(\*\*Last Updated:\*\* )[^|]+( \| Tracking: 12 active repos, )\d+( articles,)",
             lambda m: f"{m.group(1)}{date_str}{m.group(2)}{total}{m.group(3)}",
             "last-updated line")
 
