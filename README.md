@@ -8,7 +8,7 @@ Building **AI-powered automation skills**, **productivity tools**, and **knowled
 
 I build and deploy **AI-powered automation skills** that ship to production across multiple platforms.
 
-**Current Portfolio:** 21 published skills | 8 active repos | 59 technical articles | Deployed on OpenClaw, Hermes, Claude Code
+**Current Portfolio:** 21 published skills | 8 active repos | 61 technical articles | Deployed on OpenClaw, Hermes, Claude Code
 
 I focus on:
 - **Skill-based AI orchestration** — turning workflows into reusable, composable skills
@@ -57,7 +57,8 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 
 | Repo | Purpose | Articles | Latest |
 |------|---------|----------|--------|
-| **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 59 docs | `docs: add Brave browser privacy analysis` (Jul 2026) |
+| **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 57 docs | `docs: normalize naming & fix image links` (Aug 2026) |
+| **`history`** (this repo) | Archived bilingual literary articles — Five Dynasties & Ten Kingdoms, silk, *Dream of the Red Chamber*, Zhiyanzhai | 4 docs | Aug 2026 |
 
 ---
 
@@ -112,6 +113,7 @@ Process the provided English web page content and produce a high-quality Chinese
 ## 📈 Activity Timeline
 
 ### Q3 2026 (Current)
+- **Aug 2:** Normalized `YYMMDD-slug` naming across `ai-thoughts` docs & images, fixed all image links, and archived 4 literary articles into `history/`
 - **Jul 14:** Added Brave browser privacy analysis (bilingual) to `ai-thoughts`
 - **Jul 14:** Polished and committed two blog posts with bilingual README updates
 - **Early Jul:** Releasing v1 of `sum2chn` Chrome extension (translation + summarization)
@@ -173,7 +175,7 @@ I've found that **skill-based thinking** scales better than project-based thinki
 - **[@j3ffyang](https://github.com/j3ffyang)** — Personal portfolio, articles, experiments
 
 **Resources:**
-- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 59 articles on AI, privacy, and entrepreneurship
+- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 57 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in this repo's [`history/`](history/))
 - **Gists:** [Personal experiments](https://gist.github.com/j3ffyang)
 
 ---
@@ -182,13 +184,13 @@ I've found that **skill-based thinking** scales better than project-based thinki
 
 From `ai-thoughts` (recent posts):
 
-1. **"Why I Switched to Brave"** (Jul 2026) — Deep analysis of Brave vs Firefox: local keychain, WebRTC control, Tor integration
-2. **"Brave Browser Privacy Analysis"** (Jul 2026) — Bilingual breakdown of privacy features + real-world tracking prevention
-3. **"AI Usage & Combination: From Doubao User to AI Power User"** (Jul 2026) — Complete guide to OpenRouter + OpenCode + Skills for multi-provider AI workflows
-4. **"OpenClaw Security Audit"** — Real incidents, vulnerabilities, hardening checklist for self-hosters
-5. **"Hermes Agent Setup Guides"** — Connect to free models, backup data, configure personality (SOUL.md)
+1. **"Clean Up Bloat Skills & Plugins in Hermes"** (Jul 2026) — Remove bundled skills and plugins to keep your agent lean
+2. **"Unknown Unknowns"** (Jul 2026) — On the limits of knowledge and how we face what we don't know
+3. **"Death"** (Jul 2026) — Cross-cultural meditations on how different traditions face death (trilogy)
+4. **"Build Your Own AI-Powered Wiki with Obsidian + Karpathy LLM Wiki + Ollama"** (Jul 2026) — A local, AI-backed knowledge base setup
+5. **"Why I Started Using Brave Alongside Firefox"** (Jul 2026) — Real-world comparison: local keychain, WebRTC control, Tor integration
 
-👉 See all 59 articles at **[ai-thoughts/docs](https://github.com/negtivspace/ai-thoughts/tree/main/docs)**
+👉 See all 57 articles at **[ai-thoughts/docs](https://github.com/negtivspace/ai-thoughts/tree/main/docs)**
 
 ---
 
@@ -239,4 +241,4 @@ Most repos are **MIT License** — see individual repos for details.
 
 ---
 
-**Last Updated:** July 14, 2026 | Tracking: 8 active repos, 59 articles, 10+ published skills
+**Last Updated:** August 2, 2026 | Tracking: 8 active repos, 61 articles, 10+ published skills
