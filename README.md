@@ -64,7 +64,7 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 
 | Repo | Purpose | Language | Latest |
 |------|---------|----------|--------|
-| **[`langchain_project_book`](https://github.com/j3ffyang/langchain_project_book)** | Packt-published handbook on orchestrating large language models with LangChain | JavaScript | Aug 2025 |
+| **[`langchain_project_book`](https://github.com/j3ffyang/langchain_project_book)** | Handbook on orchestrating large language models with LangChain | JavaScript | Aug 2025 |
 | **[`opensource_devops`](https://github.com/j3ffyang/opensource_devops)** | DevOps handbook & technical guide — conceptual best practices + hands-on guides. Bilingual: English + Simplified Chinese | Ruby | Apr 2026 |
 | **[`astro_journal`](https://github.com/j3ffyang/astro_journal)** | Personal blog built on Astro | Astro | 2025 |
 
