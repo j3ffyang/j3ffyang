@@ -52,6 +52,13 @@ should be updated to match major content changes.
   the action only updates the repo that ran it — push to both remotes manually
   as above.
 
+**Gotchas:**
+- After renaming the `j3ffyang` repo to match the username, the README did not
+  auto-render on the profile — the **Share to profile** toggle in the repo's
+  right sidebar (About) had to be clicked first. Even a post-July-2020 repo can
+  need this after a rename. If the README doesn't show on the profile, check
+  that toggle.
+
 ## Repository layout
 
 - Root `README.md` — `j3ffyang` profile page (hand-edited; see "Profile README
