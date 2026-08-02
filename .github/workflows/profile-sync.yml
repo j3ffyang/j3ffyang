@@ -17,13 +17,14 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Clone ai-thoughts for article count
+      - name: Clone ai-thoughts and history for article counts
         run: |
-          rm -rf /tmp/ai-thoughts
+          rm -rf /tmp/ai-thoughts /tmp/history
           git clone --depth 1 "https://github.com/${GITHUB_REPOSITORY_OWNER}/ai-thoughts.git" /tmp/ai-thoughts
+          git clone --depth 1 "https://github.com/${GITHUB_REPOSITORY_OWNER}/history.git" /tmp/history
 
       - name: Recompute profile stats
-        run: python3 scripts/sync_profile.py --ai-thoughts /tmp/ai-thoughts
+        run: python3 scripts/sync_profile.py --ai-thoughts /tmp/ai-thoughts --history /tmp/history
 
       - name: Commit and push regenerated README
         env:

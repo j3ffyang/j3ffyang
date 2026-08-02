@@ -39,10 +39,10 @@ sync whenever anything underneath this repo changes.
    `negtivspace`).
 
 **Automation (`.github/workflows/profile-sync.yml`):**
-- Runs on every push to `main`: clones `ai-thoughts`, recomputes the article
-  counts via `scripts/sync_profile.py`, and commits the refreshed `README.md`
-  back. Counts come from `ai-thoughts/articles.yaml` (indexed articles) +
-  `history/docs/*.md`; drafts not yet in the manifest are excluded.
+- Runs on every push to `main`: clones `ai-thoughts` and `history`, recomputes
+  the article counts via `scripts/sync_profile.py`, and commits the refreshed
+  `README.md` back. Counts come from `ai-thoughts/articles.yaml` (indexed
+  articles) + `history/docs/*.md`; drafts not yet in the manifest are excluded.
 - To also auto-sync the **other** account's profile repo, set a
   `PROFILE_SYNC_TOKEN` repository secret (a PAT with write access to both
   `j3ffyang/j3ffyang` and `negtivspace/negtivspace`) in **both** repos. Without
@@ -61,7 +61,7 @@ sync whenever anything underneath this repo changes.
 - Root `README.md` — profile page for both accounts (hand-edited; see "Profile
   README sync").
 - `ai-thoughts/` — separate git repo (submodule), AI/tech articles.
-- `history/` — archived literary articles (plain directory, part of this repo).
+- `history/` — separate git repo (submodule), archived literary articles.
 - Other nested repos (`ai-custom-skills`, `sum2chn`, `twitterBookmarkSum`,
   `twitter2md`) — separate git repos with their own remotes; only their
   gitlink pointers are recorded here.

@@ -58,7 +58,7 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 | Repo | Purpose | Articles | Latest |
 |------|---------|----------|--------|
 | **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 57 docs | `docs: normalize naming & fix image links` (Aug 2026) |
-| **`history`** (this repo) | Archived bilingual literary articles — Five Dynasties & Ten Kingdoms, silk, *Dream of the Red Chamber*, Zhiyanzhai | 4 docs | Aug 2026 |
+| **[`history`](https://github.com/negtivspace/history)** | Archived bilingual literary articles — Five Dynasties & Ten Kingdoms, silk, *Dream of the Red Chamber*, Zhiyanzhai | 4 docs | Aug 2026 |
 
 ---
 
@@ -175,7 +175,7 @@ I've found that **skill-based thinking** scales better than project-based thinki
 - **[@j3ffyang](https://github.com/j3ffyang)** — Personal portfolio, articles, experiments
 
 **Resources:**
-- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 57 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in this repo's [`history/`](history/))
+- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 57 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in [`history`](https://github.com/negtivspace/history))
 - **Gists:** [Personal experiments](https://gist.github.com/j3ffyang)
 
 ---
