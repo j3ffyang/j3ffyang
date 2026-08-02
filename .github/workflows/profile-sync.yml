@@ -1,0 +1,55 @@
+name: profile-sync
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout profile repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone ai-thoughts for article count
+        run: |
+          rm -rf /tmp/ai-thoughts
+          git clone --depth 1 "https://github.com/${GITHUB_REPOSITORY_OWNER}/ai-thoughts.git" /tmp/ai-thoughts
+
+      - name: Recompute profile stats
+        run: python3 scripts/sync_profile.py --ai-thoughts /tmp/ai-thoughts
+
+      - name: Commit and push regenerated README
+        env:
+          SYNC_TOKEN: ${{ secrets.PROFILE_SYNC_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "README is up to date; nothing to commit"
+            exit 0
+          fi
+
+          git commit -m "docs: refresh profile stats"
+          git push origin HEAD:main
+
+          if [ -z "$SYNC_TOKEN" ]; then
+            echo "::warning::PROFILE_SYNC_TOKEN secret not set — skipping cross-account sync."
+            echo "Create a PAT with write access to both accounts and add it as the PROFILE_SYNC_TOKEN repository secret."
+            exit 0
+          fi
+
+          case "${GITHUB_REPOSITORY_OWNER}" in
+            j3ffyang)    OTHER="negtivspace" ;;
+            negtivspace) OTHER="j3ffyang" ;;
+            *)           echo "Unknown owner '${GITHUB_REPOSITORY_OWNER}'; skipping cross-account sync."; exit 0 ;;
+          esac
+          git push "https://x-access-token:${SYNC_TOKEN}@github.com/${OTHER}/.github.git" HEAD:main
+          echo "Cross-synced regenerated README to ${OTHER}/.github"
