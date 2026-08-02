@@ -47,7 +47,7 @@ jobs:
           fi
 
           case "${GITHUB_REPOSITORY_OWNER}" in
-            j3ffyang)    OTHER="negtivspace"; OTHER_REPO=".github" ;;
+            j3ffyang)    OTHER="negtivspace"; OTHER_REPO="negtivspace" ;;
             negtivspace) OTHER="j3ffyang";    OTHER_REPO="j3ffyang" ;;
             *)           echo "Unknown owner '${GITHUB_REPOSITORY_OWNER}'; skipping cross-account sync."; exit 0 ;;
           esac

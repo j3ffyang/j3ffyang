@@ -1,0 +1,15 @@
+[submodule "ai-thoughts"]
+	path = ai-thoughts
+	url = git@github.com:negtivspace/ai-thoughts.git
+[submodule "ai-custom-skills"]
+	path = ai-custom-skills
+	url = git@github.com:negtivspace/ai-custom-skills.git
+[submodule "sum2chn"]
+	path = sum2chn
+	url = git@github.com:negtivspace/sum2chn.git
+[submodule "twitter2md"]
+	path = twitter2md
+	url = git@github.com:negtivspace/twitter2md.git
+[submodule "twitterBookmarkSum"]
+	path = twitterBookmarkSum
+	url = git@github.com:negtivspace/twitter-bookmark-summarizer.git
