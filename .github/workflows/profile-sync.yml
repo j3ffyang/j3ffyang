@@ -47,9 +47,9 @@ jobs:
           fi
 
           case "${GITHUB_REPOSITORY_OWNER}" in
-            j3ffyang)    OTHER="negtivspace" ;;
-            negtivspace) OTHER="j3ffyang" ;;
+            j3ffyang)    OTHER="negtivspace"; OTHER_REPO=".github" ;;
+            negtivspace) OTHER="j3ffyang";    OTHER_REPO="j3ffyang" ;;
             *)           echo "Unknown owner '${GITHUB_REPOSITORY_OWNER}'; skipping cross-account sync."; exit 0 ;;
           esac
-          git push "https://x-access-token:${SYNC_TOKEN}@github.com/${OTHER}/.github.git" HEAD:main
-          echo "Cross-synced regenerated README to ${OTHER}/.github"
+          git push "https://x-access-token:${SYNC_TOKEN}@github.com/${OTHER}/${OTHER_REPO}.git" HEAD:main
+          echo "Cross-synced regenerated README to ${OTHER}/${OTHER_REPO}"

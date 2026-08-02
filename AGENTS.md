@@ -4,8 +4,11 @@
 
 `negtivSpace` is the repository behind the GitHub profile pages for two
 accounts — `j3ffyang` and `negtivspace`. The root `README.md` is rendered as
-the profile page on both accounts. The repo also hosts nested projects
-(`ai-thoughts`, `ai-custom-skills`, ...) and the `history/` archive.
+the profile page for the `j3ffyang` account (mirrored to `j3ffyang/j3ffyang`),
+and `profile/README.md` is rendered as the `negtivspace` organization profile
+page (mirrored to `negtivspace/.github/profile/README.md`). The repo also hosts
+nested projects (`ai-thoughts`, `ai-custom-skills`, ...) and the `history/`
+archive.
 
 ## Working rules
 
@@ -19,8 +22,10 @@ the profile page on both accounts. The repo also hosts nested projects
 
 ## Profile README sync
 
-The root `README.md` is the GitHub profile page for both accounts — keep it in
-sync whenever anything underneath this repo changes.
+The root `README.md` is the GitHub profile page for `j3ffyang` (via the
+`j3ffyang/j3ffyang` repo) — keep it in sync whenever anything underneath this
+repo changes. `profile/README.md` is the `negtivspace` org profile page and
+should be updated to match major content changes.
 
 **Trigger conditions** (any of these):
 - Articles added or removed in `ai-thoughts/` or `history/`
@@ -43,13 +48,16 @@ sync whenever anything underneath this repo changes.
   `history/docs/*.md`; drafts not yet in the manifest are excluded.
 - To also auto-sync the **other** account's profile repo, set a
   `PROFILE_SYNC_TOKEN` repository secret (a PAT with write access to both
-  `j3ffyang/.github` and `negtivspace/.github`) in **both** repos. Without it,
+  `j3ffyang/j3ffyang` and `negtivspace/.github`) in **both** repos. Without it,
   the action only updates the repo that ran it — push to both remotes manually
   as above.
 
 ## Repository layout
 
-- Root `README.md` — profile page (hand-edited; see "Profile README sync").
+- Root `README.md` — `j3ffyang` profile page (hand-edited; see "Profile README
+  sync").
+- `profile/README.md` — `negtivspace` org profile page (mirrors to
+  `negtivspace/.github/profile/README.md`).
 - `ai-thoughts/` — separate git repo (submodule), AI/tech articles.
 - `history/` — archived literary articles (plain directory, part of this repo).
 - Other nested repos (`ai-custom-skills`, `sum2chn`, `twitterBookmarkSum`,
