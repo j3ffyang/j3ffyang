@@ -8,7 +8,7 @@ Building **AI-powered automation skills**, **productivity tools**, and **knowled
 
 I build and deploy **AI-powered automation skills** that ship to production across multiple platforms.
 
-**Current Portfolio:** 23 published skills | 7 active repos | 63 technical articles | Deployed on OpenClaw, Hermes, Claude Code
+**Current Portfolio:** 24 published skills | 7 active repos | 63 technical articles | Deployed on OpenClaw, Hermes, Claude Code
 
 I focus on:
 - **Skill-based AI orchestration** — turning workflows into reusable, composable skills
@@ -247,4 +247,4 @@ Most repos are **MIT License** — see individual repos for details.
 
 ---
 
-**Last Updated:** August 4, 2026 | Tracking: 7 active repos, 63 articles, 23 published skills
+**Last Updated:** August 4, 2026 | Tracking: 7 active repos, 63 articles, 24 published skills
