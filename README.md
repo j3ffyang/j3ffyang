@@ -40,7 +40,7 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 
 | Repo | Purpose | Latest | Status |
 |------|---------|--------|--------|
-| **[`ai-custom-skills`](https://github.com/negtivspace/ai-custom-skills)** | Production-ready skills for [Claude Code](https://claude.ai/code), [Hermes](https://hermes.ai), and [OpenClaw](https://openclaw.ai) — content creation, data export, workflow automation, task orchestration (3 + 14 + 7 skills). | `tidy repo: fix README indexes and links, drop duplicate five-dynasties skill and stale draft` (Aug 2026) | 🔄 Active |
+| **[`ai-custom-skills`](https://github.com/negtivspace/ai-custom-skills)** | Production-ready skills for [Claude Code](https://claude.ai/code), [Hermes](https://hermes.ai), and [OpenClaw](https://openclaw.ai) — content creation, data export, workflow automation, task orchestration (3 + 13 + 7 skills). | `tidy repo: fix README indexes and links, drop duplicate five-dynasties skill and stale draft` (Aug 2026) | 🔄 Active |
 
 > **Legacy (merged into `ai-custom-skills`):** [`hermes-custom-skills`](https://github.com/negtivspace/hermes-custom-skills) · [`openclaw-custom-skills`](https://github.com/negtivspace/openclaw-custom-skills) · [`claude-custom-skills`](https://github.com/negtivspace/claude-custom-skills)
 

@@ -23,6 +23,7 @@ from __future__ import annotations
 import argparse
 import datetime as _dt
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -56,12 +57,28 @@ def count_indexed(root: Path) -> int:
 
 
 def count_skills(root: Path) -> int:
-    """Number of skill dirs across the ai-custom-skills platform folders."""
+    """Number of git-tracked skill dirs across the ai-custom-skills platform folders.
+
+    Counts only tracked directories (via `git ls-files`) so stale or ignored
+    leftover dirs in a local working tree can't skew the count vs CI.
+    """
     if not root.is_dir():
         return 0
     total = 0
     for platform in ("claude-code", "openclaw", "hermes"):
-        total += sum(1 for d in (root / platform).glob("*") if d.is_dir())
+        try:
+            files = subprocess.run(
+                ["git", "-C", str(root), "ls-files", f"{platform}/"],
+                capture_output=True, text=True, check=True,
+            ).stdout.splitlines()
+        except subprocess.CalledProcessError:
+            continue
+        dirs: set[str] = set()
+        for line in files:
+            parts = line.split("/")
+            if len(parts) >= 3:
+                dirs.add(parts[1])
+        total += len(dirs)
     return total
 
 
