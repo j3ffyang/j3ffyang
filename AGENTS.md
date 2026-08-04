@@ -28,13 +28,21 @@ sync whenever anything underneath this repo changes.
 - Articles added or removed in `ai-thoughts/` or `history/`
 - Submodule pointers updated (`ai-thoughts`, `ai-custom-skills`, ...)
 - New repos or tools published
+- Skills added or removed in `ai-custom-skills/`
 - Stats in the README no longer match reality
 
 **Refresh checklist:**
-1. Article counts: `ls ai-thoughts/docs/*.md | wc -l` and
-   `ls history/docs/*.md | wc -l`
-2. Update: portfolio stats line, Writing & Documentation table, Quick Links,
-   Latest Articles list, Activity Timeline, and the "Last Updated" date.
+1. Refresh all derived numbers in one shot:
+   ```bash
+   python3 scripts/sync_profile.py \
+     --ai-thoughts ai-thoughts --history history --ai-custom-skills ai-custom-skills
+   ```
+   This regenerates the portfolio stats line, repo table counts, Quick Links,
+   the **Latest Articles** top-5 list (from `articles.yaml`, published EN only),
+   the Getting Started count, and the footer. It exits 1 if any README section
+   fails to match, so drift surfaces instead of being silently ignored.
+2. Hand-maintained (not auto-derived): repo rows/tables when adding or removing
+   a repo, the Activity Timeline, and the "Latest" commit messages per repo.
 3. Commit `README.md` and push to **both** remotes (`j3ffyang`,
    `negtivspace`).
 
@@ -62,6 +70,8 @@ sync whenever anything underneath this repo changes.
   README sync").
 - `ai-thoughts/` — separate git repo (submodule), AI/tech articles.
 - `history/` — separate git repo (submodule), archived literary articles.
-- Other nested repos (`ai-custom-skills`, `sum2chn`, `twitterBookmarkSum`,
-  `twitter2md`) — separate git repos with their own remotes; only their
-  gitlink pointers are recorded here.
+- `chrome-extensions/` — separate git repo (submodule), monorepo of Chrome
+  extensions (previously `sum2chn`, `twitter2md`, `twitter-bookmark-summarizer`,
+  all archived under `negtivspace`).
+- Other nested repos (`ai-custom-skills`, ...) — separate git repos with their
+  own remotes; only their gitlink pointers are recorded here.

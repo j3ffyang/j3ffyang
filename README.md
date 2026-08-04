@@ -8,7 +8,7 @@ Building **AI-powered automation skills**, **productivity tools**, and **knowled
 
 I build and deploy **AI-powered automation skills** that ship to production across multiple platforms.
 
-**Current Portfolio:** 21 published skills | 12 active repos | 61 technical articles | Deployed on OpenClaw, Hermes, Claude Code
+**Current Portfolio:** 24 published skills | 7 active repos | 63 technical articles | Deployed on OpenClaw, Hermes, Claude Code
 
 I focus on:
 - **Skill-based AI orchestration** — turning workflows into reusable, composable skills
@@ -40,24 +40,21 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 
 | Repo | Purpose | Latest | Status |
 |------|---------|--------|--------|
-| **[`ai-custom-skills`](https://github.com/negtivspace/ai-custom-skills)** | Production-ready skills for multiple platforms (Claude Code, Hermes, OpenClaw). Covers content creation, data export, workflow automation. | `add new skill and tidy up the repo` (Jul 2026) | 🔄 Active |
-| **[`hermes-custom-skills`](https://github.com/negtivspace/hermes-custom-skills)** | Specialized skills for [Hermes Agent](https://hermes.ai) — autonomous workflows, content generation, task orchestration. | `docs: add README and CONTRIBUTING` (Jul 2026) | 🔄 Active |
-| **[`openclaw-custom-skills`](https://github.com/negtivspace/openclaw-custom-skills)** | Production skills for [OpenClaw](https://openclaw.ai) published to ClawHub. Multilingual blog publishing, media generation. | `add chinese edition` (Jul 2026) | 🔄 Active |
-| **[`claude-custom-skills`](https://github.com/negtivspace/claude-custom-skills)** | Automation skills for [Claude Code](https://claude.ai) — productivity hacks, data export, content workflows. | `add i18n support to README` (Jul 2026) | ✨ Stable |
+| **[`ai-custom-skills`](https://github.com/negtivspace/ai-custom-skills)** | Production-ready skills for [Claude Code](https://claude.ai/code), [Hermes](https://hermes.ai), and [OpenClaw](https://openclaw.ai) — content creation, data export, workflow automation, task orchestration (3 + 14 + 7 skills). | `tidy repo: fix README indexes and links, drop duplicate five-dynasties skill and stale draft` (Aug 2026) | 🔄 Active |
+
+> **Legacy (merged into `ai-custom-skills`):** [`hermes-custom-skills`](https://github.com/negtivspace/hermes-custom-skills) · [`openclaw-custom-skills`](https://github.com/negtivspace/openclaw-custom-skills) · [`claude-custom-skills`](https://github.com/negtivspace/claude-custom-skills)
 
 ### Tools & Extensions
 
 | Repo | Purpose | Type | Latest |
 |------|---------|------|--------|
-| **[`sum2chn`](https://github.com/negtivspace/sum2chn)** | Chrome extension: translate & summarize English web pages → Simplified Chinese Markdown | Chrome Ext | `Initial release` (Jul 2026) |
-| **[`twitter2md`](https://github.com/negtivspace/twitter2md)** | Extract Twitter/X posts as Markdown (Chrome Extension + Node.js CLI) | Chrome Ext + CLI | `Initial release` (May 2026) |
-| **[`twitterBookmarkSum`](https://github.com/negtivspace/twitterBookmarkSum)** | Chrome extension: summarize tweets on-demand via GPT-4o, save as Markdown | Chrome Ext | `Update README` (Jun 2024) |
+| **[`chrome-extensions`](https://github.com/negtivspace/chrome-extensions)** | Monorepo of Chrome extensions: [`sum2chn`](https://github.com/negtivspace/chrome-extensions/tree/main/sum2chn) (translate & summarize web pages → Simplified Chinese MD) · [`twitter2md`](https://github.com/negtivspace/chrome-extensions/tree/main/twitter2md) (X post → Markdown, ext + Node CLI) · [`twitter-bookmark-summarizer`](https://github.com/negtivspace/chrome-extensions/tree/main/twitter-bookmark-summarizer) (summarize tweets via GPT-4o) | Chrome Ext + CLI | `docs: add top-level README and MIT license` (Aug 2026) |
 
 ### Writing & Documentation
 
 | Repo | Purpose | Articles | Latest |
 |------|---------|----------|--------|
-| **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 57 docs | `docs: normalize naming & fix image links` (Aug 2026) |
+| **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 59 docs | `docs: add opencode-is-best essay, ollama-to-llamacpp draft, and astro-sync skill` (Aug 2026) |
 | **[`history`](https://github.com/negtivspace/history)** | Archived bilingual literary articles — Five Dynasties & Ten Kingdoms, silk, *Dream of the Red Chamber*, Zhiyanzhai | 4 docs | Aug 2026 |
 
 ### Books, Handbooks & Reference
@@ -66,7 +63,7 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 |------|---------|----------|--------|
 | **[`langchain_project_book`](https://github.com/j3ffyang/langchain_project_book)** | Handbook on orchestrating large language models with LangChain | JavaScript | Aug 2025 |
 | **[`opensource_devops`](https://github.com/j3ffyang/opensource_devops)** | DevOps handbook & technical guide — conceptual best practices + hands-on guides. Bilingual: English + Simplified Chinese | Ruby | Apr 2026 |
-| **[`astro_journal`](https://github.com/j3ffyang/astro_journal)** | Personal blog built on Astro | Astro | 2025 |
+| **[`astro_journal`](https://github.com/j3ffyang/astro_journal)** | Personal blog built on Astro | Astro | Aug 2026 |
 
 ---
 
@@ -97,7 +94,7 @@ BOOKMARKS_FILE = SCRIPT_DIR / "bookmarks.json"
 ---
 
 ### Example: Claude API Integration for Translation
-**Repo:** `sum2chn` | **Language:** JavaScript | **Purpose:** Translate & summarize web pages using Claude Sonnet
+**Repo:** `chrome-extensions/sum2chn` | **Language:** JavaScript | **Purpose:** Translate & summarize web pages using Claude Sonnet
 
 ```javascript
 const CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages';
@@ -121,10 +118,12 @@ Process the provided English web page content and produce a high-quality Chinese
 ## 📈 Activity Timeline
 
 ### Q3 2026 (Current)
-- **Aug 2:** Normalized `YYMMDD-slug` naming across `ai-thoughts` docs & images, fixed all image links, and archived 4 literary articles into `history/`
-- **Jul 14:** Added Brave browser privacy analysis (bilingual) to `ai-thoughts`
-- **Jul 14:** Polished and committed two blog posts with bilingual README updates
-- **Early Jul:** Releasing v1 of `sum2chn` Chrome extension (translation + summarization)
+- **Aug 4:** Merged the three Chrome extensions (`sum2chn`, `twitter2md`, `twitter-bookmark-summarizer`) into a single `chrome-extensions` monorepo
+- **Aug 3:** Published "OpenCode is Best for Me" and added the Ollama → llama.cpp draft to `ai-thoughts`; tidied `ai-custom-skills` (fixed README indexes/links, dropped a duplicate skill)
+- **Aug 2:** Archived 4 literary articles into `history/`; normalized `YYMMDD-slug` naming across `ai-thoughts` docs & images
+- **Jul 22:** Published "Unknown Unknowns" on the four types of knowledge
+- **Jul 21:** Published "Build Your Own AI-Powered Wiki" (Obsidian + Karpathy LLM Wiki + Ollama)
+- **Jul 6:** Added Brave browser privacy analysis (bilingual) to `ai-thoughts`
 
 **Current Focus:**
 - Expanding Hermes Agent skill library
@@ -132,13 +131,15 @@ Process the provided English web page content and produce a high-quality Chinese
 - Documenting OpenClaw security patterns
 
 ### Q2 2026
-- **Jun:** Completed `twitter2md` Chrome extension and Node.js CLI tool
-- **Jun:** Refactored `twitterBookmarkSum` to use popup-triggered summarization
-- **May:** Released `twitter2md` for X post extraction as Markdown
+- **Jun:** Published DCS joystick-tuning guide and "immutable OS strategy" essay; wrote the "2nd Brain" design doc
+- **May:** Hermes tutorials in `ai-thoughts` — SOUL.md, free-model connection, skill install workflow, backup guide
+- **Apr:** Published first Hermes Agent articles and tutorials in `ai-thoughts`
 
 ### Q1 2026
-- **Apr:** Published first Hermes Agent articles and tutorials in `ai-thoughts`
+- **Mar 10:** Released v1 of `sum2chn` Chrome extension (translation + summarization)
 - **Mar:** Established `openclaw-custom-skills` repo on ClawHub
+- **Feb 24:** Released `twitter2md` for X post extraction as Markdown (Chrome extension + Node CLI)
+- **Feb 20:** Refactored `twitterBookmarkSum` to popup-triggered summarization
 - **Feb:** Began deep-dive experimentation with OpenClaw and Hermes platforms
 
 ---
@@ -179,11 +180,11 @@ I've found that **skill-based thinking** scales better than project-based thinki
 ## 🔗 Quick Links
 
 **GitHub Accounts:**
-- **[@negtivspace](https://github.com/negtivspace)** — Published skills & tools (organizational account)
+- **[@negtivspace](https://github.com/negtivspace)** — Published skills & tools
 - **[@j3ffyang](https://github.com/j3ffyang)** — Personal portfolio, articles, experiments
 
 **Resources:**
-- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 57 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in [`history`](https://github.com/negtivspace/history))
+- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 59 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in [`history`](https://github.com/negtivspace/history))
 - **References:** [`langchain_project_book`](https://github.com/j3ffyang/langchain_project_book) (LangChain handbook) · [`opensource_devops`](https://github.com/j3ffyang/opensource_devops) (DevOps handbook) · [`astro_journal`](https://github.com/j3ffyang/astro_journal) (personal blog)
 - **Gists:** [Personal experiments](https://gist.github.com/j3ffyang)
 
@@ -193,13 +194,13 @@ I've found that **skill-based thinking** scales better than project-based thinki
 
 From `ai-thoughts` (recent posts):
 
-1. **"Clean Up Bloat Skills & Plugins in Hermes"** (Jul 2026) — Remove bundled skills and plugins to keep your agent lean
-2. **"Unknown Unknowns"** (Jul 2026) — On the limits of knowledge and how we face what we don't know
-3. **"Death"** (Jul 2026) — Cross-cultural meditations on how different traditions face death (trilogy)
-4. **"Build Your Own AI-Powered Wiki with Obsidian + Karpathy LLM Wiki + Ollama"** (Jul 2026) — A local, AI-backed knowledge base setup
-5. **"Why I Started Using Brave Alongside Firefox"** (Jul 2026) — Real-world comparison: local keychain, WebRTC control, Tor integration
+1. **"OpenCode is Best for Me"** (Aug 2026) — Personal essay on why OpenCode is the best AI agent setup for me — vendor freedom, the big-pickle model, enforced conventions, and unified billing via OpenRouter
+2. **"Unknown Unknowns"** (Jul 2026) — Personal essay on the four types of knowledge — known knowns, known unknowns, unknown knowns, and the unknown unknowns that shape our lives
+3. **"Build Your Own AI-Powered Wiki with Obsidian + Karpathy LLM Wiki + Ollama"** (Jul 2026) — Build your own AI-powered wiki with Obsidian + Karpathy LLM Wiki + Ollama — query your personal vault with a local LLM
+4. **"Ollama on Arch Linux using AMD GPU"** (Jul 2026) — Running Ollama on Arch Linux with AMD GPUs (GPD Win 4) — diagnosing low GPU utilization and switching to the ROCm build
+5. **"2nd Brain: AI-Powered Knowledge Assistant"** (Jul 2026) — Design doc for an AI-powered bilingual knowledge assistant ("2nd Brain") on Obsidian — architecture, milestones, and tech stack
 
-👉 See all 57 articles at **[ai-thoughts/docs](https://github.com/negtivspace/ai-thoughts/tree/main/docs)**
+👉 See all 59 articles at **[ai-thoughts/docs](https://github.com/negtivspace/ai-thoughts/tree/main/docs)**
 
 ---
 
@@ -214,15 +215,11 @@ cd ai-custom-skills
 
 ### Try a Tool
 ```bash
-# Twitter to Markdown
-git clone https://github.com/negtivspace/twitter2md
-cd twitter2md
+# Chrome extensions monorepo (twitter2md, sum2chn, twitter-bookmark-summarizer)
+git clone https://github.com/negtivspace/chrome-extensions
+cd chrome-extensions/twitter2md
 npm install
-npm run build  # or load extension manually in Chrome
-
-# Web page translator
-git clone https://github.com/negtivspace/sum2chn
-# Follow SETUP.md to load as Chrome extension
+npm run build  # or load the extension manually in Chrome
 ```
 
 ### Read Articles
@@ -250,4 +247,4 @@ Most repos are **MIT License** — see individual repos for details.
 
 ---
 
-**Last Updated:** August 2, 2026 | Tracking: 12 active repos, 61 articles, 10+ published skills
+**Last Updated:** August 4, 2026 | Tracking: 7 active repos, 63 articles, 24 published skills
