@@ -8,7 +8,7 @@ Building **AI-powered automation skills**, **productivity tools**, and **knowled
 
 I build and deploy **AI-powered automation skills** that ship to production across multiple platforms.
 
-**Current Portfolio:** 23 published skills | 7 active repos | 63 technical articles | Deployed on OpenClaw, Hermes, Claude Code
+**Current Portfolio:** 23 published skills | 7 active repos | 69 technical articles | Deployed on OpenClaw, Hermes, Claude Code
 
 I focus on:
 - **Skill-based AI orchestration** — turning workflows into reusable, composable skills
@@ -54,8 +54,8 @@ All code prioritizes **clarity over cleverness**: simple, readable, portable, an
 
 | Repo | Purpose | Articles | Latest |
 |------|---------|----------|--------|
-| **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 59 docs | `docs: add opencode-is-best essay, ollama-to-llamacpp draft, and astro-sync skill` (Aug 2026) |
-| **[`history`](https://github.com/negtivspace/history)** | Archived bilingual literary articles — Five Dynasties & Ten Kingdoms, silk, *Dream of the Red Chamber*, Zhiyanzhai | 4 docs | Aug 2026 |
+| **[`ai-thoughts`](https://github.com/negtivspace/ai-thoughts)** | Articles & essays: AI platforms (OpenClaw, Hermes), solo entrepreneurship, privacy, technical deep-dives. Bilingual: English + Traditional Chinese | 63 docs | `docs: add opencode-is-best essay, ollama-to-llamacpp draft, and astro-sync skill` (Aug 2026) |
+| **[`history`](https://github.com/negtivspace/history)** | Archived bilingual literary articles — Five Dynasties & Ten Kingdoms, silk, *Dream of the Red Chamber*, Zhiyanzhai | 6 docs | Aug 2026 |
 
 ### Books, Handbooks & Reference
 
@@ -184,7 +184,7 @@ I've found that **skill-based thinking** scales better than project-based thinki
 - **[@j3ffyang](https://github.com/j3ffyang)** — Personal portfolio, articles, experiments
 
 **Resources:**
-- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 59 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in [`history`](https://github.com/negtivspace/history))
+- **Blog:** [`ai-thoughts`](https://github.com/negtivspace/ai-thoughts) — 63 articles on AI, privacy, and entrepreneurship (+4 literary articles archived in [`history`](https://github.com/negtivspace/history))
 - **References:** [`langchain_project_book`](https://github.com/j3ffyang/langchain_project_book) (LangChain handbook) · [`opensource_devops`](https://github.com/j3ffyang/opensource_devops) (DevOps handbook) · [`astro_journal`](https://github.com/j3ffyang/astro_journal) (personal blog)
 - **Gists:** [Personal experiments](https://gist.github.com/j3ffyang)
 
@@ -194,13 +194,13 @@ I've found that **skill-based thinking** scales better than project-based thinki
 
 From `ai-thoughts` (recent posts):
 
-1. **"OpenCode is Best for Me"** (Aug 2026) — Personal essay on why OpenCode is the best AI agent setup for me — vendor freedom, the big-pickle model, enforced conventions, and unified billing via OpenRouter
-2. **"Unknown Unknowns"** (Jul 2026) — Personal essay on the four types of knowledge — known knowns, known unknowns, unknown knowns, and the unknown unknowns that shape our lives
-3. **"Build Your Own AI-Powered Wiki with Obsidian + Karpathy LLM Wiki + Ollama"** (Jul 2026) — Build your own AI-powered wiki with Obsidian + Karpathy LLM Wiki + Ollama — query your personal vault with a local LLM
-4. **"Ollama on Arch Linux using AMD GPU"** (Jul 2026) — Running Ollama on Arch Linux with AMD GPUs (GPD Win 4) — diagnosing low GPU utilization and switching to the ROCm build
-5. **"2nd Brain: AI-Powered Knowledge Assistant"** (Jul 2026) — Design doc for an AI-powered bilingual knowledge assistant ("2nd Brain") on Obsidian — architecture, milestones, and tech stack
+1. **"Arch Linux + Hyprland on GPD Win4 with iGPU + eGPU"** (Aug 2026) — Arch Linux + Hyprland on GPD Win4 with dual AMD GPUs — iGPU + eGPU (RX 7600M XT via OCuLink) rendering offload, verification commands, and stable DRM symlinks
+2. **"OpenCode is Best for Me"** (Aug 2026) — Personal essay on why OpenCode is the best AI agent setup for me — vendor freedom, the big-pickle model, enforced conventions, and unified billing via OpenRouter
+3. **"Clean Up Bloated Skills & Plugins in Hermes ⚚"** (Jul 2026) — Guide to cleaning up bloated skills & plugins in Hermes Agent — list enabled skills, opt out of bundled skills, and revert anytime
+4. **"Unknown Unknowns"** (Jul 2026) — Personal essay on the four types of knowledge — known knowns, known unknowns, unknown knowns, and the unknown unknowns that shape our lives
+5. **"Build Your Own AI-Powered Wiki with Obsidian + Karpathy LLM Wiki + Ollama"** (Jul 2026) — Build your own AI-powered wiki with Obsidian + Karpathy LLM Wiki + Ollama — query your personal vault with a local LLM
 
-👉 See all 59 articles at **[ai-thoughts/docs](https://github.com/negtivspace/ai-thoughts/tree/main/docs)**
+👉 See all 63 articles at **[ai-thoughts/docs](https://github.com/negtivspace/ai-thoughts/tree/main/docs)**
 
 ---
 
@@ -226,7 +226,7 @@ npm run build  # or load the extension manually in Chrome
 ```bash
 git clone https://github.com/negtivspace/ai-thoughts
 cd docs
-# 59 articles: AI platforms, privacy, solo entrepreneurship, technical deep-dives
+# 63 articles: AI platforms, privacy, solo entrepreneurship, technical deep-dives
 ```
 
 ---
@@ -247,4 +247,4 @@ Most repos are **MIT License** — see individual repos for details.
 
 ---
 
-**Last Updated:** August 4, 2026 | Tracking: 7 active repos, 63 articles, 23 published skills
+**Last Updated:** August 8, 2026 | Tracking: 7 active repos, 69 articles, 23 published skills
