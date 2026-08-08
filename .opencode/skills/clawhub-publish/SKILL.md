@@ -20,7 +20,10 @@ Skills come from three repos under the `negtivSpace` superproject. Each repo
 has its own `.github/workflows/clawhub-skill-sync.yml` that publishes its
 skills to ClawHub:
 
-- `history/.opencode/skills/` — `astro-sync`, `zh-history-literature-culture`.
+- `history/` — publishes only
+  `.opencode/skills/zh-history-literature-culture` (via a `skill_path` entry).
+  The `astro-sync` skill in `history/.opencode/skills/` is **local-only**: it
+  stays in the repo for opencode to load, but is not published to ClawHub.
 - `ai-thoughts/.opencode/skills/` — `astro-sync`, `resize-for-banner`,
   `translate-to-chn`.
 - `ai-custom-skills/` — roots `openclaw/`, `hermes/`, `claude-code/`, plus the
@@ -96,6 +99,10 @@ skills to ClawHub:
   `permissions: {contents: read, id-token: write}`; add it.
 - **Nested skill not found** — the matrix `skill_path` must point at the folder
   containing the `SKILL.md` (double-nested folders need the full path).
+- **Slug collision** — `astro-sync` exists in both `history` and `ai-thoughts`
+  with different content. `ai-thoughts` publishes it (canonical);
+  `history`'s copy is local-only, kept out of ClawHub via `skill_path`. Never
+  publish the same slug from two repos to the same owner.
 - **Token missing** — publish fails without `clawhub_token`; it must be set as
   a secret on the `j3ffyang/*` repo.
 
