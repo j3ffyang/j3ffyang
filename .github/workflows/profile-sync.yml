@@ -3,6 +3,8 @@ name: profile-sync
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    types: [sync-portfolio]
   workflow_dispatch: {}
 
 permissions:
