@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "edit": "ask",
+    "webfetch": "allow",
+    "bash": {
+      // Everything not listed below falls through to the bare default:
+      // silently denied, no prompt. Only explicit "allow" rules run without
+      // asking; state-changing commands can be approved per-session.
+      // Read-only shell: listing / inspecting, no side effects.
+      "cat *": "allow", "ls *": "allow", "head *": "allow", "tail *": "allow",
+      "wc *": "allow", "sort *": "allow", "uniq *": "allow", "less *": "allow",
+      "more *": "allow", "date *": "allow", "awk *": "allow", "jq *": "allow",
+      "grep *": "allow", "diff *": "allow", "stat *": "allow", "file *": "allow",
+      "du *": "allow", "df *": "allow", "which *": "allow", "command -v *": "allow",
+      "pwd *": "allow", "env *": "allow", "uname *": "allow", "echo *": "allow",
+      "printf *": "allow",
+
+      // Read-only git: never add/commit/push/pull/reset/checkout/merge/stash.
+      "git status*": "allow", "git diff*": "allow", "git log*": "allow",
+      "git show*": "allow", "git ls-files*": "allow", "git rev-parse*": "allow",
+      "git rev-list*": "allow", "git describe*": "allow", "git shortlog*": "allow",
+      "git blame*": "allow", "git grep*": "allow", "git reflog*": "allow",
+      "git stash list*": "allow", "git tag -l*": "allow", "git tag --list*": "allow",
+      "git config --get*": "allow", "git config --list*": "allow", "git config -l*": "allow",
+      "git branch -l*": "allow", "git branch --list*": "allow",
+      "git branch -a*": "allow", "git branch -vv*": "allow",
+      "git remote -v*": "allow",
+
+      // Read-only gh: listing / viewing, no writes (gh api excluded on purpose).
+      "gh auth status*": "allow", "gh repo view*": "allow", "gh pr list*": "allow",
+      "gh pr view*": "allow", "gh pr status*": "allow", "gh issue list*": "allow",
+      "gh issue view*": "allow", "gh release list*": "allow", "gh release view*": "allow",
+      "gh run list*": "allow", "gh run view*": "allow"
+    }
+  },
+  "autoupdate": "notify"
+}
