@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   sync:
+    if: github.repository_owner == 'j3ffyang'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout profile repo
@@ -41,15 +42,10 @@ jobs:
           git push origin HEAD:main
 
           if [ -z "$SYNC_TOKEN" ]; then
-            echo "::warning::PROFILE_SYNC_TOKEN secret not set — skipping cross-account sync."
-            echo "Create a PAT with write access to both accounts and add it as the PROFILE_SYNC_TOKEN repository secret."
+            echo "::warning::PROFILE_SYNC_TOKEN secret not set — skipping mirror sync."
+            echo "Create a PAT with write access to negtivspace and add it as the PROFILE_SYNC_TOKEN repository secret."
             exit 0
           fi
 
-          case "${GITHUB_REPOSITORY_OWNER}" in
-            j3ffyang)    OTHER="negtivspace"; OTHER_REPO="negtivspace" ;;
-            negtivspace) OTHER="j3ffyang";    OTHER_REPO="j3ffyang" ;;
-            *)           echo "Unknown owner '${GITHUB_REPOSITORY_OWNER}'; skipping cross-account sync."; exit 0 ;;
-          esac
-          git push "https://x-access-token:${SYNC_TOKEN}@github.com/${OTHER}/${OTHER_REPO}.git" HEAD:main
-          echo "Cross-synced regenerated README to ${OTHER}/${OTHER_REPO}"
+          git push "https://x-access-token:${SYNC_TOKEN}@github.com/negtivspace/negtivspace.git" HEAD:main
+          echo "Cross-synced regenerated README to negtivspace/negtivspace"
