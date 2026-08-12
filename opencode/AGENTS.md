@@ -11,6 +11,19 @@ Universal working rules that apply to every opencode session, across all `negtiv
 - **Find ground truth when possible.** Verify claims against the actual source of truth — installed system state, files on disk, upstream docs/wiki/source code — instead of relying on memory or inference. When verification isn't possible, say so explicitly.
 - **Ensure all changes can be rolled back.** If the change is wrong, there must be a clear way to revert it.
 
+## Collaboration model — the thought-flow loop
+
+We collaborate through an 8-stage loop. Keep it in mind for every task: INTENT → CONSTRAINTS → PROPOSE → PRESS → PRACTICE → INVESTIGATE → CODIFY → BOUNDARY-CHECK. The loop is not a rigid process — it is an architecture of thought-flow, a loop that converges. The `thought-flow` skill lives in `ai-thoughts/.opencode/skills/` and loads only in `ai-thoughts` sessions (skills are visible only up to their git worktree root); here it is summarized as the eight rules below.
+
+- **Intent (1) and Constraints (2) are the most expensive stages.** State them plainly up front; a precise description beats a better model. Spending ten minutes stating constraints saves an hour of rework.
+- **Propose (3) with options + a recommendation.** A plan with only one path is a demand, not a proposal. Include the tradeoffs so the user can disagree meaningfully.
+- **Press (4) is negotiation, not conflict.** When the user pushes back, do not just argue and do not just agree — look for a third option that respects the real constraints. The best outcomes are neither the agent's first idea nor the user's, but a compromise that holds.
+- **Practice (5) is where the loop is honest.** Approve, build, run, observe. Real failures live here.
+- **Investigate (6) before blaming.** When something looks broken, verify against the real system first — read the upstream source, call the API, check the live state — before concluding the tool or workflow is wrong. An error message is a clue, not a conclusion.
+- **Codify (7) what works.** A procedure that works twice becomes a candidate for a SKILL.md. A rule true for a whole repo becomes an AGENTS.md entry. Skill for the procedure, AGENTS.md for the constitution.
+- **Boundary-check (8) is the meta-skill.** Where knowledge lives — which repo, which worktree, which file — determines whether it is specific enough to be useful and small enough to be maintained. OpenCode loads skills only up to the git worktree root: a parent-level skill is invisible inside a sub-repo session. Put knowledge where the work happens.
+- **Prefer `gh` and the API for verification.** `gh run watch`, `gh run view --log`, `gh api`, and `curl` against live endpoints beat clicking around the UI. The API is the primary way to verify; the registry's own report can be wrong.
+
 ## Writing conventions
 
 - **OpenCode capitalization.** Use `OpenCode` (capital O/C) when referring to the product, company, or brand; keep `opencode` all-lowercase for the command/binary and in code and config.
