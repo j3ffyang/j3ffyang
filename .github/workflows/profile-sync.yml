@@ -7,6 +7,10 @@ on:
     types: [sync-portfolio]
   workflow_dispatch: {}
 
+concurrency:
+  group: profile-sync
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -39,6 +43,7 @@ jobs:
           fi
 
           git commit -m "docs: sync profile README from PORTFOLIO.md"
+          git pull --rebase origin main || true
           git push origin HEAD:main
 
           if [ -z "$SYNC_TOKEN" ]; then
@@ -47,5 +52,8 @@ jobs:
             exit 0
           fi
 
-          git push "https://x-access-token:${SYNC_TOKEN}@github.com/negtivspace/negtivspace.git" HEAD:main
-          echo "Cross-synced regenerated README to negtivspace/negtivspace"
+          if git push "https://x-access-token:${SYNC_TOKEN}@github.com/negtivspace/negtivspace.git" HEAD:main; then
+            echo "Cross-synced regenerated README to negtivspace/negtivspace"
+          else
+            echo "::warning::Failed to cross-push to negtivspace/negtivspace — check PROFILE_SYNC_TOKEN permissions."
+          fi
