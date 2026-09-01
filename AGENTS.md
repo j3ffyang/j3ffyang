@@ -81,6 +81,10 @@ sync whenever anything underneath this repo changes.
   **Private & git-ignored** (see `.gitignore`): local machine-state knowledge base,
   kept on disk for OpenCode sessions, never pushed to the public profile repos.
   Articles are published separately via `ai-thoughts/docs/`.
+- `grace/` — plain directory (not a submodule), private local knowledge project
+  (Simplified-Chinese writing & skills docs). **Private & git-ignored** (see
+  `.gitignore`): kept on disk for OpenCode sessions, never pushed to the public
+  profile repos.
 
 ## Submodule pointers
 
