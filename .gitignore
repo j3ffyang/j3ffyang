@@ -2,3 +2,6 @@
 # gpd/ is local-only: held on disk for OpenCode sessions, never pushed to the
 # public profile repos. Articles are published separately via ai-thoughts/docs/.
 gpd/
+
+# Private local project (Chinese writing/skills knowledge base) — local-only.
+grace/
