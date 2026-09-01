@@ -1,0 +1,4 @@
+# Private machine-state knowledge base (GPD Win4 tweaks, docs, AGENTS.md)
+# gpd/ is local-only: held on disk for OpenCode sessions, never pushed to the
+# public profile repos. Articles are published separately via ai-thoughts/docs/.
+gpd/

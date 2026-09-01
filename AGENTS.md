@@ -77,4 +77,18 @@ sync whenever anything underneath this repo changes.
 - `opencode/` — git-managed home of the global OpenCode layer (see
   `opencode/AGENTS.md`): symlinked to `~/.config/opencode/`.
 - `gpd/` — plain directory (not a submodule), GPU configuration guide
-  (`AGENTS.md` + `docs/260807-amd.md`).
+  (`AGENTS.md` + `docs/260807-gpd-dual-amd-gpu.md`, symlinked to `ai-thoughts/docs/`).
+  **Private & git-ignored** (see `.gitignore`): local machine-state knowledge base,
+  kept on disk for OpenCode sessions, never pushed to the public profile repos.
+  Articles are published separately via `ai-thoughts/docs/`.
+
+## Submodule pointers
+
+The hub records only gitlink pointers for the nested repos, so `git status`
+shows `M <repo>` whenever a submodule has newer local commits — that is
+drift, not breakage. Policy: bump a pointer (`git add <repo>` then commit)
+when the submodule reaches a state worth pinning for the profile README
+(a published article, a released skill); otherwise leave it dirty and
+tolerate the drift. Never run `git submodule update` just to clean the
+status — it moves each submodule back to its pinned commit, undoing exactly
+the drift you chose to tolerate.
