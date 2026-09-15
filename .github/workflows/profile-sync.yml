@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   sync:
-    if: github.repository_owner == 'j3ffyang'
+    if: github.repository_owner == 'negtivspace'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout profile repo
@@ -25,14 +25,31 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Copy PORTFOLIO.md into README
+        env:
+          EXPECT_SHA: ${{ github.event.client_payload.head_sha }}
         run: |
           rm -rf /tmp/ai-thoughts
           git clone --depth 1 "https://github.com/${GITHUB_REPOSITORY_OWNER}/ai-thoughts.git" /tmp/ai-thoughts
+
+          if [ -n "${EXPECT_SHA}" ]; then
+            for i in $(seq 1 12); do
+              CURRENT=$(git -C /tmp/ai-thoughts rev-parse HEAD 2>/dev/null || echo "")
+              if [ "${CURRENT}" = "${EXPECT_SHA}" ]; then
+                echo "ai-thoughts is at expected commit ${EXPECT_SHA}"
+                break
+              fi
+              sleep 5
+              git -C /tmp/ai-thoughts fetch --depth 1 origin main && git -C /tmp/ai-thoughts reset --hard origin/main || true
+            done
+            CURRENT=$(git -C /tmp/ai-thoughts rev-parse HEAD)
+            if [ "${CURRENT}" != "${EXPECT_SHA}" ]; then
+              echo "::warning::ai-thoughts HEAD ${CURRENT} != expected ${EXPECT_SHA} — syncing with what is present"
+            fi
+          fi
+
           cp /tmp/ai-thoughts/PORTFOLIO.md README.md
 
       - name: Commit and push regenerated README
-        env:
-          SYNC_TOKEN: ${{ secrets.PROFILE_SYNC_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -45,15 +62,3 @@ jobs:
           git commit -m "docs: sync profile README from PORTFOLIO.md"
           git pull --rebase origin main || true
           git push origin HEAD:main
-
-          if [ -z "$SYNC_TOKEN" ]; then
-            echo "::warning::PROFILE_SYNC_TOKEN secret not set — skipping mirror sync."
-            echo "Create a PAT with write access to negtivspace and add it as the PROFILE_SYNC_TOKEN repository secret."
-            exit 0
-          fi
-
-          if git push "https://x-access-token:${SYNC_TOKEN}@github.com/negtivspace/negtivspace.git" HEAD:main; then
-            echo "Cross-synced regenerated README to negtivspace/negtivspace"
-          else
-            echo "::warning::Failed to cross-push to negtivspace/negtivspace — check PROFILE_SYNC_TOKEN permissions."
-          fi
