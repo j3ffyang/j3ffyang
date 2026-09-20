@@ -5,3 +5,13 @@ gpd/
 
 # Private local project (Chinese writing/skills knowledge base) — local-only.
 grace/
+
+# Private personal medical/health knowledge base — local-only. Contains highly
+# sensitive blood-test reports and diabetes records; never pushed anywhere.
+health/
+
+# Private personal analysis/design notes (Wenchao) — local-only, never published.
+wenchao/
+
+# Private project (Joey) — local-only, never published.
+joey/
