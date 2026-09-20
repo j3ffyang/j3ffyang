@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   sync:
-    if: github.repository_owner == 'j3ffyang'
+    if: github.repository_owner == 'negtivspace'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout profile repo
