@@ -54,6 +54,18 @@ sync whenever anything underneath this repo changes.
   on `j3ffyang/j3ffyang` so the j3ffyang run cross-pushes the exact same
   commit to the mirror and both repos stay on the same hash. Without it, push
   the README to both remotes manually as above.
+- **Verify the guard on both remotes.** The recurring push-failure regression
+  was `negtivspace`'s workflow copy silently flipping the condition to
+  `== 'negtivspace'`, which made *both* accounts auto-commit. Before trusting
+  the mirror, confirm both copies carry the guard:
+  ```sh
+  git show j3ffyang/main:.github/workflows/profile-sync.yml | grep "repository_owner =="
+  git show negtivspace/main:.github/workflows/profile-sync.yml | grep "repository_owner =="
+  ```
+  Both must read `== 'j3ffyang'`. The `j3ffyang` workflow also self-checks this
+  on every run: its `Verify mirror matches j3ffyang` step fails if
+  `negtivspace/main` diverges, and its mirror step re-syncs on every invocation
+  (not only when the README changed).
 
 **Gotchas:**
 - After renaming the `j3ffyang` repo to match the username, the README did not

@@ -52,9 +52,7 @@ jobs:
 
           cp /tmp/ai-thoughts/PORTFOLIO.md README.md
 
-      - name: Commit and push regenerated README
-        env:
-          SYNC_TOKEN: ${{ secrets.PROFILE_SYNC_TOKEN }}
+      - name: Commit regenerated README (if changed)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -68,14 +66,30 @@ jobs:
           git pull --rebase origin main || true
           git push origin HEAD:main
 
+      # Runs on every invocation — not only when the README changed — so a
+      # guard/workflow drift on the mirror cannot go unnoticed. Fast-forward
+      # only; a diverged mirror is reported by the verify step, never clobbered.
+      - name: Mirror j3ffyang main to negtivspace
+        env:
+          SYNC_TOKEN: ${{ secrets.PROFILE_SYNC_TOKEN }}
+        run: |
           if [ -z "$SYNC_TOKEN" ]; then
             echo "::warning::PROFILE_SYNC_TOKEN secret not set — skipping mirror sync."
             echo "Create a PAT with write access to negtivspace and add it as the PROFILE_SYNC_TOKEN repository secret."
             exit 0
           fi
+          git push "https://x-access-token:${SYNC_TOKEN}@github.com/negtivspace/negtivspace.git" HEAD:main \
+            || echo "::warning::Mirror push rejected (non-fast-forward?) — the verify step below will report it."
 
-          if git push "https://x-access-token:${SYNC_TOKEN}@github.com/negtivspace/negtivspace.git" HEAD:main; then
-            echo "Cross-synced regenerated README to negtivspace/negtivspace"
-          else
-            echo "::warning::Failed to cross-push to negtivspace/negtivspace — check PROFILE_SYNC_TOKEN permissions."
+      # Self-check: negtivspace is a pure mirror, so its main must equal
+      # j3ffyang's main. A mismatch means the guard regressed on the mirror
+      # (the exact cause of the repeated non-fast-forward push failures).
+      - name: Verify mirror matches j3ffyang (guard regression check)
+        run: |
+          OWN=$(git rev-parse HEAD)
+          MIRROR=$(git ls-remote https://github.com/negtivspace/negtivspace.git refs/heads/main | cut -f1)
+          if [ "$OWN" != "$MIRROR" ]; then
+            echo "::error::Mirror drift: negtivspace/main=$MIRROR != j3ffyang/main=$OWN — the single-writer guard or the mirror has regressed; reconcile the two remotes."
+            exit 1
           fi
+          echo "Mirror in sync at $OWN"
