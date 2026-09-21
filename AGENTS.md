@@ -86,6 +86,10 @@ Do not use it for the published README; if it is truly unused it can be removed.
   shallow checkout could not fast-forward a behind mirror). Self-publishing
   each repo removes the whole failure class. The `PROFILE_SYNC_TOKEN` and
   `NEGTIVSPACE_SYNC_TOKEN` secrets have been deleted — do not add them back.
+- **Local drift is expected.** The workflows commit `README.md` on the remotes,
+  so the local root copy falls behind after each run. Leave it as-is; do not
+  `git pull`/sync it. (Only sync before a local push to the profile repo, if
+  ever needed.)
 
 **Gotchas:**
 - After renaming the `j3ffyang` repo to match the username, the README did not
