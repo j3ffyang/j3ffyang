@@ -28,6 +28,16 @@ sync whenever anything underneath this repo changes.
 the profile workflows publish `PORTFOLIO.md` as each account's `README.md`.
 **Edit the template, not `README.md`.**
 
+```
+ai-thoughts/scripts/portfolio_template.md   ← edit (hand-maintained)
+        │ gen_portfolio.py
+        ▼
+ai-thoughts/PORTFOLIO.md
+        │ profile workflows (hourly / manual)
+        ▼
+j3ffyang/j3ffyang README.md   ·   negtivspace/negtivspace README.md
+```
+
 **Refresh checklist:**
 1. Edit `ai-thoughts/scripts/portfolio_template.md` — the hand-maintained prose,
    repo rows/tables, the Activity Timeline, and any counts not covered by the
