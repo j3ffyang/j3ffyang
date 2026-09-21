@@ -90,6 +90,14 @@ Do not use it for the published README; if it is truly unused it can be removed.
   so the local root copy falls behind after each run. Leave it as-is; do not
   `git pull`/sync it. (Only sync before a local push to the profile repo, if
   ever needed.)
+- **Docs/infra live on `j3ffyang`.** The two profile repos have divergent
+  histories by design (each self-commits `README.md`), so a single commit can no
+  longer be pushed to both. Push docs/infra changes (`AGENTS.md`, `opencode/`,
+  `scripts/`) to **`j3ffyang` only** — `negtivspace/negtivspace` needs only
+  `README.md` (workflow-managed) plus its own workflow file, and nothing there
+  reads the other files. **When the workflow file itself changes, apply it to
+  `negtivspace` too** (a second, separate commit); otherwise its sync keeps
+  running the older logic. Do not "fix" this asymmetry with a mirror or guard.
 
 **Gotchas:**
 - After renaming the `j3ffyang` repo to match the username, the README did not
