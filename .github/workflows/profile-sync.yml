@@ -78,6 +78,11 @@ jobs:
             echo "Create a PAT with write access to negtivspace and add it as the PROFILE_SYNC_TOKEN repository secret."
             exit 0
           fi
+          # actions/checkout persists GITHUB_TOKEN as an http.extraheader, and
+          # that header overrides the PAT embedded in the push URL — the push
+          # would then authenticate as github-actions[bot] and get a 403. Drop
+          # the persisted header so the PAT is what actually authenticates.
+          git config --unset-all "http.https://github.com/.extraheader" || true
           git push "https://x-access-token:${SYNC_TOKEN}@github.com/negtivspace/negtivspace.git" HEAD:main \
             || echo "::warning::Mirror push rejected (non-fast-forward?) — the verify step below will report it."
 
