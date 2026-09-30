@@ -14,6 +14,26 @@ Universal working rules that apply to every opencode session, across all `negtiv
 - **Find ground truth when possible.** Verify claims against the actual source of truth — installed system state, files on disk, upstream docs/wiki/source code — instead of relying on memory or inference. When verification isn't possible, say so explicitly.
 - **Ensure all changes can be rolled back.** If the change is wrong, there must be a clear way to revert it.
 
+## Untrusted code safety
+
+When reviewing, cloning, installing, or running code from a source we do not control — a repo invite, a package, a script, a config that executes — these are hard stops, not preferences.
+
+- **`/tmp` is the only workspace for untrusted code.** Never let it read, collect, or send data from this machine outside `/tmp`; never run it with real secrets, keys, or source in reach.
+- **Never read the user's** code, API keys, credentials, SSH/GPG keys, wallets, browser sessions, or personal files.
+- **Never trust code from an unknown source.** An invite, a README, a commit history, or a familiar package name is not a vouch.
+- **STOP and RAISE HANDS immediately** — halt the run, do not continue, report to the user at once with what was attempted — if executed code reads the filesystem outside `/tmp`, touches `process.env`/keys/tokens/credentials, collects or sends local data off the machine, spawns child processes or opens unauthorized network connections, or shows any malicious, harmful, deceptive, cheating, or stealing behavior.
+- **Confirm before proceeding when unsure**, and **delete all test clones and artifacts** when done.
+
+Procedure and detection/containment recipes: `ai-thoughts/.opencode/skills/untrusted-code-safety/SKILL.md`.
+
+## Host safety
+
+Do not damage the machine to satisfy a tool.
+
+- **Never `sudo` a package install.** No `sudo npm`, `sudo npm install -g`, `sudo pip`, `sudo gem`, or similar. A stray `sudo` leaves root-owned files behind and can lock the desktop login (this happened once: a `sudo npm` install took Arch's login down). Install user-level instead — `nvm`, `~/.local`, `--prefix`, `pipx`.
+- **Never blanket-`chown`/`chmod` to "fix" a permission error.** Do not run `chown -R` / `chmod -R` over system paths or a home tree. If ownership is already broken, repair it precisely: find the owning package with `pacman -Qo <path>` (or the distro equivalent), then `chown` only the affected files back to `$USER`.
+- **A permission error is a clue, not a licence to escalate.** When unsure, stop and ask.
+
 ## Collaboration model — the thought-flow loop
 
 We collaborate through an 8-stage loop. Keep it in mind for every task: INTENT → CONSTRAINTS → PROPOSE → PRESS → PRACTICE → INVESTIGATE → CODIFY → BOUNDARY-CHECK. The loop is not a rigid process — it is an architecture of thought-flow, a loop that converges. The `thought-flow` skill lives in `ai-thoughts/.opencode/skills/` and loads only in `ai-thoughts` sessions (skills are visible only up to their git worktree root); here it is summarized as the eight rules below.
