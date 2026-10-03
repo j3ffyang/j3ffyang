@@ -13,6 +13,7 @@ Universal working rules that apply to every opencode session, across all `negtiv
 - **Give HONEST answers.** Do not assume, do not guess. If you don't know or aren't sure, say so and verify before claiming.
 - **Find ground truth when possible.** Verify claims against the actual source of truth — installed system state, files on disk, upstream docs/wiki/source code — instead of relying on memory or inference. When verification isn't possible, say so explicitly.
 - **Ensure all changes can be rolled back.** If the change is wrong, there must be a clear way to revert it.
+- **Ask for a whole-project review before calling non-trivial work done.** Left alone, the agent keeps fixing the one issue in front of it until it is done and never sweeps the project, so patches stack on patches and nothing surfaces the drift until the work is hard to review or debug. On anything bigger than a single file, ask it to "review and analyze" the whole project (or article), and read the findings before you end the session.
 
 ## Untrusted code safety
 
