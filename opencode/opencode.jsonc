@@ -1,5 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    // OpenCode skills live in the ai-thoughts worktree (ai-thoughts/.opencode/skills).
+    // Scanned recursively for **/SKILL.md, so every skill there loads in all
+    // sessions regardless of the working directory.
+    "paths": ["/home/jeff/pool/git/negtivSpace/ai-thoughts/.opencode/skills"]
+  },
   "permission": {
     "edit": "ask",
     "webfetch": "allow",
