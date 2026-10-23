@@ -27,7 +27,7 @@ My OpenCode skills live in `ai-thoughts/.opencode/skills/` and publish to [ClawH
 
 - **[`asd-ste100`](https://clawhub.ai/j3ffyang/skills/asd-ste100)** — write and audit agent instructions in ASD-STE100's rules: one action per sentence, condition first, one name per item. Ships a deterministic linter for sentence length, semicolons, banned words, and passive voice.
 
-The rest of the collection — article translation, Traditional-Chinese twin sync, banner resizing, Astro sync — is in the repo linked below.
+The rest of the collection — article translation, Traditional-Chinese twin sync, Astro sync, and `resize-for-banner` for Twitter/X headers only (LinkedIn and blog headers take the original image) — is in the repo linked below.
 
 | Platform | Repo | Purpose | Latest | Status |
 |----------|------|---------|--------|--------|
@@ -56,6 +56,8 @@ The rest of the collection — article translation, Traditional-Chinese twin syn
 *Timeline is editorial — edit it directly in `scripts/portfolio_template.md`, then regenerate.*
 
 ### Q4 2026 (Current)
+- **Oct 23:** Published "Where Does Brave's Leo AI Keep Your Data?" — English plus Simplified and Traditional Chinese twins, a 16:9 infographic, and a 5:2 banner; the local store turns out to be decryptable with Chromium's public `peanuts` key on a machine with no keyring
+- **Oct 23:** Restricted `resize-for-banner` to Twitter/X only — LinkedIn and blog headers accept the original image — and codified "register an article only after it is committed and pushed" in AGENTS.md, which removed three uncommitted rows from the manifest
 - **Oct 20:** Published "The Rules, Not the Words: ASD-STE100 for Agent Instructions" — English plus Simplified and Traditional Chinese twins, a 16:9 infographic, and a 5:2 banner
 - **Oct 20:** Added the `asd-ste100` skill and a `--stats` summary mode to its linter; rewrote both working-rule AGENTS.md files to the same standard (18 and 15 linter errors to zero) and logged the diffs
 - **Oct 20:** Added a `portfolio_latest: false` opt-out, so an article whose doc is not committed yet stays counted but off the front-page list; recorded a per-genre precision rule (approximate figures in essays, exactness in code and measurements)
@@ -307,12 +309,12 @@ if args.check:
 
 From `ai-thoughts` (most recent published articles):
 
-1. **"The Rules, Not the Words: ASD-STE100 for Agent Instructions"** (Oct 2026) — ASD-STE100 Simplified Technical English for agent instructions — the standard's history and rules, three worked examples, a linter-backed before-and-after measurement of two rule files, and a skill that applies the rules without flattening essay voice; with a visual summary infographic
-2. **"Replace Cursor with a Minimal VSCodium AppImage"** (Oct 2026) — Replacing Cursor with a minimal, self-contained VSCodium AppImage on Arch — no forced agent panel, no telemetry, no account; three Open VSX extensions (Vim, Markdown Preview Enhanced, Markdown PDF); built-in Mermaid and local PlantUML rendering; manual updates; and a measured footprint comparison; with a visual summary infographic
-3. **"Unix Is Art"** (Oct 2026) — A personal essay on the Unix philosophy as an aesthetic — its history from 1974 to 2004 (Thompson and Ritchie, McIlroy, Kernighan and Pike, Raymond), the ideas behind it and the critics of it, a remembrance of Dennis Ritchie, and what Unix made me
-4. **"Keeping secrets out of Git"** (Oct 2026) — A short checklist for keeping secrets out of git — why a committed secret is already compromised, the .gitignore patterns to add, where to state the policy (README, AGENTS.md), and three commands to verify nothing is hiding; with a visual summary infographic
-5. **"Encrypting Linux: from a hack 20+ years ago to firewalls, LUKS and Veracrypt"** (Oct 2026) — A personal Linux security story — how a break-in 20+ years ago pushed me from detecting tampering (tripwire) to preventing it: LUKS full-disk encryption (xfs root, cleartext /boot), Veracrypt USB volumes, the threat model and its honest limits, AES-NI overhead, TRIM, and a daily rsync backup between two encrypted disks; with a visual summary infographic
-6. **"Anatomy of a Malicious GitHub Invite — The Brisova Build-Time Payload"** (Sep 2026) — Anatomy of a malicious GitHub repo invite: an obfuscated Tailwind/PostCSS plugin that runs npm install sql.js socket.io-client form-data axios at build time and loads a C2/credential-stealer toolset — static and sandboxed dynamic analysis, a zero-trust handling strategy, and full IoCs; with a visual summary infographic
+1. **"Health Records an Agent Can Audit"** (Oct 2026) — A two-layer skill for AI-assisted review of personal and family medical records: append-only data, conflict protocol, change gate, evidence grading — and the honest list of what it still cannot do
+2. **"The Rules, Not the Words: ASD-STE100 for Agent Instructions"** (Oct 2026) — ASD-STE100 Simplified Technical English for agent instructions — the standard's history and rules, three worked examples, a linter-backed before-and-after measurement of two rule files, and a skill that applies the rules without flattening essay voice; with a visual summary infographic
+3. **"Where Does Brave's Leo AI Keep Your Data?"** (Oct 2026) — Inside Brave Leo's local store — the single AIChat SQLite database, its schema for conversations/pages/search sources, why its at-rest OSCrypt encryption falls back to a hardcoded key without a keyring, what that structured local data could be used for, and why harvesting it team-wide is not worth it
+4. **"Unix Is Art"** (Oct 2026) — A personal essay on the Unix philosophy as an aesthetic — its history from 1974 to 2004 (Thompson and Ritchie, McIlroy, Kernighan and Pike, Raymond), the ideas behind it and the critics of it, a remembrance of Dennis Ritchie, and what Unix made me
+5. **"Keeping secrets out of Git"** (Oct 2026) — A short checklist for keeping secrets out of git — why a committed secret is already compromised, the .gitignore patterns to add, where to state the policy (README, AGENTS.md), and three commands to verify nothing is hiding; with a visual summary infographic
+6. **"Encrypting Linux: from a hack 20+ years ago to firewalls, LUKS and Veracrypt"** (Oct 2026) — A personal Linux security story — how a break-in 20+ years ago pushed me from detecting tampering (tripwire) to preventing it: LUKS full-disk encryption (xfs root, cleartext /boot), Veracrypt USB volumes, the threat model and its honest limits, AES-NI overhead, TRIM, and a daily rsync backup between two encrypted disks; with a visual summary infographic
 
 👉 See all 50 articles at **[ai-thoughts/docs](https://github.com/negtivspace/ai-thoughts/tree/main/docs)**
 
@@ -351,4 +353,4 @@ Most repos are **MIT License** — see individual repos for details.
 
 ---
 
-**Last Updated:** October 20, 2026 | Tracking: 6 active repos, 50 published articles, 20+ published skills
+**Last Updated:** October 23, 2026 | Tracking: 6 active repos, 50 published articles, 20+ published skills
