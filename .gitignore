@@ -15,3 +15,6 @@ wenchao/
 
 # Private project (Joey) — local-only, never published.
 joey/
+
+# Private standalone project (dendro) — its own repo, kept out of the superproject.
+dendro/
