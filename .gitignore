@@ -18,3 +18,10 @@ joey/
 
 # Private standalone project (dendro) — its own repo, kept out of the superproject.
 dendro/
+
+# Nested repos — plain sibling clones with their own remotes, kept out of this
+# repo entirely (no gitlink, no .gitmodules). Each is published on its own.
+ai-thoughts/
+ai-custom-skills/
+history/
+chrome-extensions/

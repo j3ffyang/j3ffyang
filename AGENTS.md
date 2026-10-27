@@ -5,9 +5,9 @@
 `negtivSpace` is the repository behind the GitHub profile pages for two
 **user accounts** — `j3ffyang` and `negtivspace`. Each account's profile repo
 (`j3ffyang/j3ffyang`, `negtivspace/negtivspace`) independently publishes the
-same `README.md` content from the canonical `PORTFOLIO.md`. The repo also hosts
-nested projects (`ai-thoughts`, `ai-custom-skills`, ...) and the `history/`
-archive.
+same `README.md` content from the canonical `PORTFOLIO.md`. The repo also sits
+next to nested project clones (`ai-thoughts`, `ai-custom-skills`, ...) and the
+`history/` archive — separate repos on disk, git-ignored here, never tracked.
 
 **Universal working rules** (get approval before any change, commit only when asked, push to both remotes, honesty, brand conventions) live in the global `~/.config/opencode/AGENTS.md` — a symlink to `opencode/AGENTS.md` in this repo.
 
@@ -18,7 +18,7 @@ sync whenever anything underneath this repo changes.
 
 **Trigger conditions** (any of these):
 - Articles added or removed in `ai-thoughts/` or `history/`
-- Submodule pointers updated (`ai-thoughts`, `ai-custom-skills`, ...)
+- A nested repo's row in the template is stale (latest-commit subject, status)
 - New repos or tools published
 - Skills added or removed in `ai-custom-skills/`
 - Stats in `PORTFOLIO.md` no longer match reality
@@ -111,13 +111,13 @@ Do not use it for the published README; if it is truly unused it can be removed.
 - Root `README.md` — profile page for both accounts; **generated** from
   `ai-thoughts/PORTFOLIO.md` by each profile repo's workflow. Edit the source,
   `ai-thoughts/scripts/portfolio_template.md` (see "Profile README sync").
-- `ai-thoughts/` — separate git repo (submodule), AI/tech articles.
-- `history/` — separate git repo (submodule), archived literary articles.
-- `chrome-extensions/` — separate git repo (submodule), monorepo of Chrome
+- `ai-thoughts/` — sibling clone (not tracked here), AI/tech articles.
+- `history/` — sibling clone (not tracked here), archived literary articles.
+- `chrome-extensions/` — sibling clone (not tracked here), monorepo of Chrome
   extensions (previously `sum2chn`, `twitter2md`, `twitter-bookmark-summarizer`,
   all archived under `negtivspace`).
-- Other nested repos (`ai-custom-skills`, ...) — separate git repos with their
-  own remotes; only their gitlink pointers are recorded here.
+- `ai-custom-skills/` — sibling clone (not tracked here), multi-platform skills
+  (Claude Code, Hermes, OpenClaw).
 - `opencode/` — git-managed home of the global OpenCode layer (see
   `opencode/AGENTS.md`): symlinked to `~/.config/opencode/`.
 - `gpd/` — plain directory (not a submodule), GPU configuration guide
@@ -130,13 +130,29 @@ Do not use it for the published README; if it is truly unused it can be removed.
   `.gitignore`): kept on disk for OpenCode sessions, never pushed to the public
   profile repos.
 
-## Submodule pointers
+## Nested repos
 
-The hub records only gitlink pointers for the nested repos, so `git status`
-shows `M <repo>` whenever a submodule has newer local commits — that is
-drift, not breakage. Policy: bump a pointer (`git add <repo>` then commit)
-when the submodule reaches a state worth pinning for the profile README
-(a published article, a released skill); otherwise leave it dirty and
-tolerate the drift. Never run `git submodule update` just to clean the
-status — it moves each submodule back to its pinned commit, undoing exactly
-the drift you chose to tolerate.
+The four nested repos (`ai-thoughts`, `ai-custom-skills`, `history`,
+`chrome-extensions`) are **plain sibling clones**, not submodules. They were
+gitlinks only by accident: a 2026-07-14 "consolidate" commit swept four
+embedded repos into the index as gitlinks, and `.gitmodules` was added later to
+formalize it. Both were removed on 2026-10-27 — the index has no `160000`
+entries, `.gitmodules` is gone, and the four paths are in `.gitignore`. There
+is no pointer pinning, no `M` drift, and no `git submodule update` step.
+
+Rules that keep it that way:
+
+- **Commit each nested repo in itself**, from inside it, and push to its own
+  remotes. Nothing about it is recorded in this hub.
+- **Never `git add -A` / `git add .` here.** The clones are ignored, but a
+  blanket add also stages unrelated drafts (`misc/`, and anything not yet
+  ignored). Add named paths only.
+- **A reappearing `S` badge or `M <repo>` line means a gitlink came back**
+  (e.g. `git add` of an embedded repo, or a stray `git submodule add`). Undo it
+  with `git rm --cached <path>`; the clone's contents are never touched.
+- **A fresh clone of this hub contains none of the four.** Clone each repo
+  separately at the same level if you need them on a new machine.
+- **Restoring the old pin** is possible only from history: the gitlink SHAs are
+  in commits before 2026-10-27, and `git submodule add` would re-create the
+  entry. Do not do this without a reason — the hub's published product is
+  `PORTFOLIO.md`, which links the repos by URL and never by SHA.
