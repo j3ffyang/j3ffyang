@@ -48,8 +48,7 @@ j3ffyang/j3ffyang README.md   ·   negtivspace/negtivspace README.md
    python3 ai-thoughts/scripts/gen_portfolio.py --check   # exit 1 if stale
    ```
    `gen_portfolio.py` fills exactly three placeholders from `articles.yaml` +
-   git log: `{{ARTICLE_COUNT}}`, `{{LATEST_ARTICLES}}` (top-5 published EN
-   only), and `{{LAST_UPDATED}}`. Everything else in the template is
+   git log: `{{ARTICLE_COUNT}}`, `{{LATEST_ARTICLES}}` (top-6 published EN only, one linked title and month per line), and `{{LAST_UPDATED}}`. Everything else in the template is
    hand-maintained.
 3. Commit `ai-thoughts` (`PORTFOLIO.md` + template) and push to **both** remotes
    (`j3ffyang`, `negtivspace`). Each profile workflow re-publishes its own
