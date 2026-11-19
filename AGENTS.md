@@ -7,9 +7,9 @@
 (`j3ffyang/j3ffyang`, `negtivspace/negtivspace`) independently publishes the
 same `README.md` content from the canonical `PORTFOLIO.md`.
 
-This repo is the **portfolio hub only**. It holds the README preview, a copy of
-the profile-sync workflow, and the legacy `sync_profile.py`. It holds no
-projects. Every project is a sibling repo or folder under `~/pool/git/`.
+This repo is the **portfolio hub only**. It holds the README preview and a copy
+of the profile-sync workflow. It holds no projects. Every project is a sibling
+repo or folder under `~/pool/git/`.
 
 **Universal working rules** live in the OpenCode global layer, split into a
 public half (`ai-thoughts/.opencode/global/AGENTS.md`) and a private half
@@ -66,11 +66,10 @@ j3ffyang/j3ffyang README.md   ·   negtivspace/negtivspace README.md
    `README.md` from `PORTFOLIO.md` on its next run (hourly schedule, or trigger
    manually: `gh workflow run profile-sync.yml --repo <owner>/<owner>`).
 
-`scripts/sync_profile.py` is **legacy** — it edited `README.md` directly and is
-superseded by the `PORTFOLIO.md` pipeline (the workflow overwrites `README.md`).
-It expects `ai-thoughts/` and `history/` as relative siblings that no longer
-exist, so it will not run as-is. Do not use it for the published README; if it is
-truly unused it can be removed.
+`scripts/sync_profile.py` was **removed on 2026-11-19**. It edited `README.md`
+directly, was superseded by the `PORTFOLIO.md` pipeline, and had not been able
+to run since its `ai-thoughts/` and `history/` inputs moved out of this repo.
+It remains in this repo's history.
 
 **Automation (`.github/workflows/profile-sync.yml`):**
 - Each profile repo (`j3ffyang/j3ffyang`, `negtivspace/negtivspace`) runs the
@@ -104,7 +103,7 @@ truly unused it can be removed.
   ever needed.)
 - **Docs/infra live on `j3ffyang`.** The two profile repos have divergent
   histories by design (each self-commits `README.md`), so a single commit can no
-  longer be pushed to both. Push docs/infra changes (`AGENTS.md`, `scripts/`) to
+  longer be pushed to both. Push docs/infra changes (`AGENTS.md`) to
   **`j3ffyang` only** — `negtivspace/negtivspace` needs only `README.md`
   (workflow-managed) plus its own workflow file, and nothing there reads the
   other files. **When the workflow file itself changes, apply it to
@@ -127,7 +126,6 @@ truly unused it can be removed.
 - `.github/workflows/profile-sync.yml` — a copy of the workflow that each
   profile repo runs. Changes here must be applied to both profile repos; this
   copy is not executed from here.
-- `scripts/sync_profile.py` — legacy, superseded, will not run as-is.
 - `.crawhub.json` — ClawHub CLI licence acceptance.
 - `.gitignore` — historical entries for the twelve projects that used to live
   here. They are kept as a guard: if one of those names ever reappears in this
