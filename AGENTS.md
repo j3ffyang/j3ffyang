@@ -5,34 +5,45 @@
 `negtivSpace` is the repository behind the GitHub profile pages for two
 **user accounts** — `j3ffyang` and `negtivspace`. Each account's profile repo
 (`j3ffyang/j3ffyang`, `negtivspace/negtivspace`) independently publishes the
-same `README.md` content from the canonical `PORTFOLIO.md`. The repo also sits
-next to nested project clones (`ai-thoughts`, `ai-custom-skills`, ...) and the
-`history/` archive — separate repos on disk, git-ignored here, never tracked.
+same `README.md` content from the canonical `PORTFOLIO.md`.
 
-**Universal working rules** (get approval before any change, commit only when asked, push to both remotes, honesty, brand conventions) live in the global `~/.config/opencode/AGENTS.md` — a symlink to `opencode/AGENTS.md` in this repo.
+This repo is the **portfolio hub only**. It holds the README preview, a copy of
+the profile-sync workflow, and the legacy `sync_profile.py`. It holds no
+projects. Every project is a sibling repo or folder under `~/pool/git/`.
+
+**Universal working rules** live in the OpenCode global layer, split into a
+public half (`ai-thoughts/.opencode/global/AGENTS.md`) and a private half
+(`gpd/global/AGENTS.md`), both loaded in every session through
+`~/.config/opencode/`. They cover approval before a change, commits only when
+asked, the secrets scan, host safety, honesty, rollback, and brand conventions.
 
 ## Profile README sync
 
 The root `README.md` is the GitHub profile page for both accounts — keep it in
-sync whenever anything underneath this repo changes.
+sync whenever anything underneath changes.
+
+The published pages do **not** depend on this local clone. Each profile repo
+runs its own workflow on GitHub, clones `j3ffyang/ai-thoughts` from GitHub, and
+publishes `PORTFOLIO.md` as its `README.md`. If this folder is never opened
+again, both profiles stay current.
 
 **Trigger conditions** (any of these):
-- Articles added or removed in `ai-thoughts/` or `history/`
-- A nested repo's row in the template is stale (latest-commit subject, status)
+- Articles added or removed in `~/pool/git/ai-thoughts/` or `~/pool/git/history/`
+- A project's row in the template is stale (latest-commit subject, status)
 - New repos or tools published
-- Skills added or removed in `ai-custom-skills/`
+- Skills added or removed in `~/pool/git/ai-custom-skills/`
 - Stats in `PORTFOLIO.md` no longer match reality
 
-**Single source of truth:** `ai-thoughts/scripts/portfolio_template.md`.
+**Single source of truth:** `~/pool/git/ai-thoughts/scripts/portfolio_template.md`.
 `PORTFOLIO.md` is generated from it (plus `articles.yaml` and the git log), and
 the profile workflows publish `PORTFOLIO.md` as each account's `README.md`.
 **Edit the template, not `README.md`.**
 
 ```
-ai-thoughts/scripts/portfolio_template.md   ← edit (hand-maintained)
+~/pool/git/ai-thoughts/scripts/portfolio_template.md   ← edit (hand-maintained)
         │ gen_portfolio.py
         ▼
-ai-thoughts/PORTFOLIO.md
+~/pool/git/ai-thoughts/PORTFOLIO.md
         │ profile workflows (hourly / manual)
         ▼
 j3ffyang/j3ffyang README.md   ·   negtivspace/negtivspace README.md
@@ -44,8 +55,8 @@ j3ffyang/j3ffyang README.md   ·   negtivspace/negtivspace README.md
    three placeholders below.
 2. Regenerate `PORTFOLIO.md`:
    ```bash
-   python3 ai-thoughts/scripts/gen_portfolio.py
-   python3 ai-thoughts/scripts/gen_portfolio.py --check   # exit 1 if stale
+   python3 ~/pool/git/ai-thoughts/scripts/gen_portfolio.py
+   python3 ~/pool/git/ai-thoughts/scripts/gen_portfolio.py --check   # exit 1 if stale
    ```
    `gen_portfolio.py` fills exactly three placeholders from `articles.yaml` +
    git log: `{{ARTICLE_COUNT}}`, `{{LATEST_ARTICLES}}` (top-6 published EN only, one linked title and month per line), and `{{LAST_UPDATED}}`. Everything else in the template is
@@ -57,7 +68,9 @@ j3ffyang/j3ffyang README.md   ·   negtivspace/negtivspace README.md
 
 `scripts/sync_profile.py` is **legacy** — it edited `README.md` directly and is
 superseded by the `PORTFOLIO.md` pipeline (the workflow overwrites `README.md`).
-Do not use it for the published README; if it is truly unused it can be removed.
+It expects `ai-thoughts/` and `history/` as relative siblings that no longer
+exist, so it will not run as-is. Do not use it for the published README; if it is
+truly unused it can be removed.
 
 **Automation (`.github/workflows/profile-sync.yml`):**
 - Each profile repo (`j3ffyang/j3ffyang`, `negtivspace/negtivspace`) runs the
@@ -91,10 +104,10 @@ Do not use it for the published README; if it is truly unused it can be removed.
   ever needed.)
 - **Docs/infra live on `j3ffyang`.** The two profile repos have divergent
   histories by design (each self-commits `README.md`), so a single commit can no
-  longer be pushed to both. Push docs/infra changes (`AGENTS.md`, `opencode/`,
-  `scripts/`) to **`j3ffyang` only** — `negtivspace/negtivspace` needs only
-  `README.md` (workflow-managed) plus its own workflow file, and nothing there
-  reads the other files. **When the workflow file itself changes, apply it to
+  longer be pushed to both. Push docs/infra changes (`AGENTS.md`, `scripts/`) to
+  **`j3ffyang` only** — `negtivspace/negtivspace` needs only `README.md`
+  (workflow-managed) plus its own workflow file, and nothing there reads the
+  other files. **When the workflow file itself changes, apply it to
   `negtivspace` too** (a second, separate commit); otherwise its sync keeps
   running the older logic. Do not "fix" this asymmetry with a mirror or guard.
 
@@ -107,51 +120,39 @@ Do not use it for the published README; if it is truly unused it can be removed.
 
 ## Repository layout
 
-- Root `README.md` — profile page for both accounts; **generated** from
-  `ai-thoughts/PORTFOLIO.md` by each profile repo's workflow. Edit the source,
+- `README.md` — profile page for both accounts; **generated**, and a preview of
+  what the workflows publish. Edit the source,
   `ai-thoughts/scripts/portfolio_template.md` (see "Profile README sync").
-- `ai-thoughts/` — sibling clone (not tracked here), AI/tech articles.
-- `history/` — sibling clone (not tracked here), archived literary articles.
-- `chrome-extensions/` — sibling clone (not tracked here), monorepo of Chrome
-  extensions (previously `sum2chn`, `twitter2md`, `twitter-bookmark-summarizer`,
-  all archived under `negtivspace`).
-- `ai-custom-skills/` — sibling clone (not tracked here), multi-platform skills
-  (Claude Code, Hermes, OpenClaw).
-- `opencode/` — git-managed home of the global OpenCode layer (see
-  `opencode/AGENTS.md`): symlinked to `~/.config/opencode/`.
-- `gpd/` — plain directory (not a submodule), GPU configuration guide
-  (`AGENTS.md` + `docs/260807-gpd-dual-amd-gpu.md`, symlinked to `ai-thoughts/docs/`).
-  **Private & git-ignored** (see `.gitignore`): local machine-state knowledge base,
-  kept on disk for OpenCode sessions, never pushed to the public profile repos.
-  Articles are published separately via `ai-thoughts/docs/`.
-- `grace/` — plain directory (not a submodule), private local knowledge project
-  (Simplified-Chinese writing & skills docs). **Private & git-ignored** (see
-  `.gitignore`): kept on disk for OpenCode sessions, never pushed to the public
-  profile repos.
+- `AGENTS.md` — this file.
+- `.github/workflows/profile-sync.yml` — a copy of the workflow that each
+  profile repo runs. Changes here must be applied to both profile repos; this
+  copy is not executed from here.
+- `scripts/sync_profile.py` — legacy, superseded, will not run as-is.
+- `.crawhub.json` — ClawHub CLI licence acceptance.
+- `.gitignore` — historical entries for the twelve projects that used to live
+  here. They are kept as a guard: if one of those names ever reappears in this
+  folder, it was put there by mistake.
 
-## Nested repos
+That is the whole repo. Nothing else belongs here.
 
-The four nested repos (`ai-thoughts`, `ai-custom-skills`, `history`,
-`chrome-extensions`) are **plain sibling clones**, not submodules. They were
-gitlinks only by accident: a 2026-07-14 "consolidate" commit swept four
-embedded repos into the index as gitlinks, and `.gitmodules` was added later to
-formalize it. Both were removed on 2026-10-27 — the index has no `160000`
-entries, `.gitmodules` is gone, and the four paths are in `.gitignore`. There
-is no pointer pinning, no `M` drift, and no `git submodule update` step.
+## Projects are siblings, not children
 
-Rules that keep it that way:
+Until 2026-11-19 this repo's working tree also held twelve projects, git-ignored
+and each with its own history. They were moved up one level to `~/pool/git/`:
+`ai-thoughts`, `ai-custom-skills`, `history`, `chrome-extensions`, `gpd`,
+`grace`, `health`, `wenchao`, `joey`, `quantalattice`, `can-invest`,
+`trendtube`. The hub kept only its portfolio machinery.
 
-- **Commit each nested repo in itself**, from inside it, and push to its own
-  remotes. Nothing about it is recorded in this hub.
-- **Never `git add -A` / `git add .` here.** The clones are ignored, but a
-  blanket add also stages unrelated drafts (`misc/`, and anything not yet
-  ignored). Add named paths only.
-- **A reappearing `S` badge or `M <repo>` line means a gitlink came back**
-  (e.g. `git add` of an embedded repo, or a stray `git submodule add`). Undo it
-  with `git rm --cached <path>`; the clone's contents are never touched.
-- **A fresh clone of this hub contains none of the four.** Clone each repo
+Rules that hold the shape:
+
+- **Never re-create the nested layout.** Do not clone, check out, or generate a
+  project inside `~/pool/git/negtivSpace/`. Projects live at
+  `~/pool/git/<project>/`, one level up.
+- **Commit each project in itself**, from inside it, and push to its own
+  remotes. Nothing about a project is recorded here.
+- **Never `git add -A` / `git add .` here.** Add named paths only.
+- **A fresh clone of this repo contains no projects.** Clone each one
   separately at the same level if you need them on a new machine.
-- **Restoring the old pin** is possible only from history: the gitlink SHAs are
-  in commits before 2026-10-27, and `git submodule add` would re-create the
-  entry. Do not do this without a reason — the hub's published product is
-  `PORTFOLIO.md`, which links the repos by URL and never by SHA.
+- The published product is `PORTFOLIO.md`, which links projects by URL and never
+  by SHA. No project is pinned to this repo by a pointer, a submodule, or a
+  gitlink, and the index has had no `160000` entries since 2026-10-27.
